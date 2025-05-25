@@ -12,7 +12,8 @@
     "astro": "astro",
     "format:check": "prettier ./src --check",
     "format": "prettier . --write",
-    "lint": "eslint ./src --fix"
+    "lint": "eslint ./src --fix",
+    "lint:ts": "tsc --noEmit"
   },
   "dependencies": {
     "@astrojs/mdx": "4.0.3",

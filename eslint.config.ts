@@ -1,5 +1,3 @@
-import astroParser from 'astro-eslint-parser';
-
 import react from '@eslint-react/eslint-plugin';
 import eslint from '@eslint/js';
 import astro from 'eslint-plugin-astro';
@@ -13,20 +11,23 @@ export default tslint.config(
   eslint.configs.recommended,
   ...astro.configs['flat/recommended'],
 
-  // React + React Hooks rules, scoped to non-Astro files
   {
-    files: ['**/*.{js,jsx,ts,tsx}'],
-    plugins: {
-      '@eslint-react': react,
-      'react-hooks': reactHooks,
-    },
-    rules: {
-      ...react.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
+    files: ['**/*.ts', '**/*.tsx'],
+
+    extends: [
+      react.configs['recommended-typescript'],
+      reactHooks.configs['recommended-latest'],
+    ],
+
+    languageOptions: {
+      parser: tslint.parser,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
   },
 
-  // Unicorn rules (applied globally unless scoped)
   {
     plugins: {
       unicorn,
@@ -41,7 +42,6 @@ export default tslint.config(
     },
   },
 
-  // Custom base rules (applied globally)
   {
     rules: {
       'no-unreachable': 'error',
