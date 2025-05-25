@@ -12,15 +12,20 @@ const config = {
   trailingComma: 'es5',
   arrowParens: 'always',
   importOrder: [
-    '^astro:.+$', // Astro built-in
+    '^astro(:|-|/)', // Astro built-in
+    '^@astro',
+    '',
     '^react$', // React
     '^react-dom$', // React DOM
     '^react/jsx-runtime$', // JSX runtime
-    '^[a-zA-Z0-9]', // External packages (e.g., lodash, axios)
+    '',
+    '<THIRD_PARTY_MODULES>', // External packages (e.g., lodash, axios)
+    '',
     '^@/(lib|hooks)',
-    '^@/(features/layout|components|content)',
+    '^@/',
+    '',
     '^[./]', // Relative imports
-    '^@/styles', // Internal aliases like @/components
+    '',
     '.(css|scss|sass|less|png|jpg|jpeg|svg|webp|gif)$', // CSS and assets
   ],
   importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
