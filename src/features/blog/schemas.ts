@@ -1,11 +1,11 @@
-import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { glob } from 'astro/loaders';
+import { defineCollection, z } from 'astro:content';
 
 export const blog = defineCollection({
   // Load Markdown and MDX files in the `src/content/blog/` directory.
   loader: glob({
-    base: "./src/features/blog/content",
-    pattern: "**/*.{md,mdx}",
+    base: './src/features/blog/content',
+    pattern: '**/*.{md,mdx}',
   }),
   // Type-check frontmatter using a schema
   schema: z.object({
