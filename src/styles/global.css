@@ -1,1 +1,13 @@
 @import 'tailwindcss';
+
+
+@theme inline {
+    --font-mono: 'Maple Mono', monospace
+}
+
+
+@layer base {
+    body {
+        @apply font-mono;
+    }
+}

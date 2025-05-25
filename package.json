@@ -13,6 +13,7 @@
     "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "4.0.10",
     "@astrojs/sitemap": "3.2.1",
+    "@fontsource/maple-mono": "5.2.5",
     "@tailwindcss/vite": "4.1.7",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
