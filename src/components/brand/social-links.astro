@@ -1,0 +1,14 @@
+---
+import { mySocials } from '@/content/socials';
+---
+
+{
+  mySocials.map((social) => {
+    return (
+      <a href={social.link} target="_blank" rel="noreferrer">
+        <span class="sr-only">Follow me on {social.label}</span>
+        <social.Icon className="size-8" aria-hidden="true" />
+      </a>
+    );
+  })
+}

@@ -1,16 +1,37 @@
 ---
-import SocialLinks from '@/components/social-links.astro';
+import SocialLinks from '@/components/brand/social-links.astro';
 import { SITE_TITLE } from '@/consts';
 import HeaderLink from '@/layout/header-link.astro';
+
+type HeaderLinkItem = {
+  label: string;
+  href: string;
+};
+const headerLinks: Array<HeaderLinkItem> = [
+  {
+    label: 'Home',
+    href: '/',
+  },
+  {
+    label: 'Blog',
+    href: '/blog',
+  },
+  {
+    label: 'About',
+    href: '/about',
+  },
+];
 ---
 
 <header>
   <nav>
     <h2><a href="/">{SITE_TITLE}</a></h2>
-    <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
+    <div>
+      {
+        headerLinks.map((link) => {
+          <HeaderLink href={link.href}>{link.label}</HeaderLink>;
+        })
+      }
     </div>
     <SocialLinks />
   </nav>
