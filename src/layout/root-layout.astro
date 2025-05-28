@@ -1,10 +1,11 @@
 ---
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
 import BaseHead from '@/layout/base-head.astro';
+import SafeAreaContainer from '@/layout/containers/safe-area-container.astro';
 import Footer from '@/layout/footer.astro';
 import Header from '@/layout/header.astro';
 
-import '@/styles/global.css';
+import '@/styles/app.css';
 import '@fontsource/maple-mono/400.css';
 import '@fontsource/maple-mono/500.css';
 
@@ -22,9 +23,11 @@ const { description = SITE_DESCRIPTION, title = SITE_TITLE } = Astro.props;
     <BaseHead description={description} title={title} />
     <slot name="head" />
   </head>
-  <body>
-    <Header />
-    <slot />
-    <Footer />
+  <body class="flex min-h-dvh flex-col">
+    <SafeAreaContainer>
+      <Header />
+      <slot />
+      <Footer />
+    </SafeAreaContainer>
   </body>
 </html>
