@@ -1,5 +1,4 @@
 ---
-import SocialLinks from '@/components/brand/social-links.astro';
 import { SITE_TITLE } from '@/consts';
 import HeaderLink from '@/layout/header-link.astro';
 
@@ -26,7 +25,7 @@ const headerLinks: Array<HeaderLinkItem> = [
 <header class="flex w-full items-center justify-start gap-8 py-4 lg:max-w-5xl">
   <nav class="flex w-full">
     <h2><a href="/">{SITE_TITLE}</a></h2>
-    <div class="ml-auto flex gap-2">
+    <div class="ml-auto flex gap-3 text-xs">
       {
         headerLinks.map((link) => {
           return <HeaderLink href={link.href}>{link.label}</HeaderLink>;
@@ -34,7 +33,4 @@ const headerLinks: Array<HeaderLinkItem> = [
       }
     </div>
   </nav>
-  <div class="flex gap-2">
-    <SocialLinks />
-  </div>
 </header>
