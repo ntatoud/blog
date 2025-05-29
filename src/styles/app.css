@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-mono: 'Maple Mono', monospace;
+
+  --spacing-safe-top: env(safe-area-inset-top);
+  --spacing-safe-bottom: env(safe-area-inset-bottom);
+  --spacing-safe-left: env(safe-area-inset-left);
+  --spacing-safe-right: env(safe-area-inset-right);
+}
+
+@layer base {
+  body {
+    @apply font-mono;
+
+     @media all and (display-mode: standalone) {
+      height: 100lvh; /* Force full height on iOS standalone */
+    }
+  }
+
+
+ 
+}

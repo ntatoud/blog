@@ -1,17 +1,36 @@
 ---
-import SocialLinks from '@/components/social-links.astro';
 import { SITE_TITLE } from '@/consts';
 import HeaderLink from '@/layout/header-link.astro';
+
+type HeaderLinkItem = {
+  label: string;
+  href: string;
+};
+const headerLinks: Array<HeaderLinkItem> = [
+  {
+    label: 'Home',
+    href: '/',
+  },
+  {
+    label: 'Blog',
+    href: '/blog',
+  },
+  {
+    label: 'About',
+    href: '/about',
+  },
+];
 ---
 
-<header>
-  <nav>
+<header class="flex w-full items-center justify-start gap-8 py-4 lg:max-w-5xl">
+  <nav class="flex w-full">
     <h2><a href="/">{SITE_TITLE}</a></h2>
-    <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
+    <div class="ml-auto flex gap-3 text-xs">
+      {
+        headerLinks.map((link) => {
+          return <HeaderLink href={link.href}>{link.label}</HeaderLink>;
+        })
+      }
     </div>
-    <SocialLinks />
   </nav>
 </header>
