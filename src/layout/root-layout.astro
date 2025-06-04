@@ -26,7 +26,9 @@ const { description = SITE_DESCRIPTION, title = SITE_TITLE } = Astro.props;
   <body class="flex min-h-dvh flex-col">
     <SafeAreaContainer>
       <Header />
-      <slot />
+      <main class="flex h-full w-full flex-1 flex-col">
+        <slot />
+      </main>
       <Footer />
     </SafeAreaContainer>
   </body>

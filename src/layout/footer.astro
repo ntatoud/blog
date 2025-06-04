@@ -4,9 +4,11 @@ import SocialLinks from '@/components/brand/social-links.astro';
 const today = new Date();
 ---
 
-<footer>
-  &copy; {today.getFullYear()} TATOUD Noé. All rights reserved.
-  <div>
+<footer class="flex w-full items-center justify-between py-4">
+  <p class="text-xs tracking-tighter">
+    &copy; {today.getFullYear()} TATOUD Noé. All rights reserved.
+  </p>
+  <div class="flex gap-3">
     <SocialLinks />
   </div>
 </footer>
