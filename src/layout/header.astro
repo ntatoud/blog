@@ -1,5 +1,6 @@
 ---
 import { SITE_TITLE } from '@/consts';
+import MaxWidth from '@/layout/containers/max-width.astro';
 import HeaderLink from '@/layout/header-link.astro';
 
 type HeaderLinkItem = {
@@ -22,15 +23,19 @@ const headerLinks: Array<HeaderLinkItem> = [
 ];
 ---
 
-<header class="flex w-full items-center justify-start gap-8 py-4">
-  <nav class="flex w-full">
-    <h2><a href="/">{SITE_TITLE}</a></h2>
-    <div class="ml-auto flex gap-3 text-xs">
-      {
-        headerLinks.map((link) => {
-          return <HeaderLink href={link.href}>{link.label}</HeaderLink>;
-        })
-      }
-    </div>
-  </nav>
+<header
+  class="fixed flex w-full items-center justify-center gap-8 bg-white py-4"
+>
+  <MaxWidth>
+    <nav class="flex w-full items-center justify-between">
+      <h2><a href="/">{SITE_TITLE}</a></h2>
+      <div class="flex gap-3 text-xs">
+        {
+          headerLinks.map((link) => {
+            return <HeaderLink href={link.href}>{link.label}</HeaderLink>;
+          })
+        }
+      </div>
+    </nav>
+  </MaxWidth>
 </header>

@@ -1,6 +1,7 @@
 ---
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
 import BaseHead from '@/layout/base-head.astro';
+import MaxWidth from '@/layout/containers/max-width.astro';
 import SafeAreaContainer from '@/layout/containers/safe-area-container.astro';
 import Footer from '@/layout/footer.astro';
 import Header from '@/layout/header.astro';
@@ -26,8 +27,10 @@ const { description = SITE_DESCRIPTION, title = SITE_TITLE } = Astro.props;
   <body class="flex min-h-dvh flex-col">
     <SafeAreaContainer>
       <Header />
-      <main class="flex h-full w-full flex-1 flex-col">
-        <slot />
+      <main class="mt-16 flex h-full flex-1">
+        <MaxWidth className="flex-col">
+          <slot />
+        </MaxWidth>
       </main>
       <Footer />
     </SafeAreaContainer>

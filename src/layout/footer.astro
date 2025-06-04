@@ -1,14 +1,17 @@
 ---
 import SocialLinks from '@/components/brand/social-links.astro';
+import MaxWidth from '@/layout/containers/max-width.astro';
 
 const today = new Date();
 ---
 
-<footer class="flex w-full items-center justify-between py-4">
-  <p class="text-xs tracking-tighter">
-    &copy; {today.getFullYear()} TATOUD Noé. All rights reserved.
-  </p>
-  <div class="flex gap-3">
-    <SocialLinks />
-  </div>
+<footer class="flex w-full py-4">
+  <MaxWidth className="items-center justify-between">
+    <p class="text-xs tracking-tighter">
+      &copy; {today.getFullYear()} TATOUD Noé. All rights reserved.
+    </p>
+    <div class="flex gap-3">
+      <SocialLinks />
+    </div>
+  </MaxWidth>
 </footer>
