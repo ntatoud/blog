@@ -8,20 +8,16 @@ import tslint from 'typescript-eslint';
 export default tslint.config(
   // Base config
   tslint.configs.recommended,
-  eslint.configs.recommended,
+  eslint.configs['recommended'],
   ...astro.configs['flat/recommended'],
 
   {
     files: ['**/*.ts', '**/*.tsx'],
-
     extends: [
       react.configs['recommended-typescript'],
       reactHooks.configs['recommended-latest'],
     ],
     languageOptions: {
-      globals: {
-        fetch: false,
-      },
       parser: tslint.parser,
       parserOptions: {
         projectService: true,
