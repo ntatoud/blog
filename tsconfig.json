@@ -6,6 +6,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",
+    "lib": ["DOM", "ESNext"],
     "paths": {
       "@/*": ["./src/*"]
     }

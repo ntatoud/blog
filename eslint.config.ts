@@ -18,8 +18,10 @@ export default tslint.config(
       react.configs['recommended-typescript'],
       reactHooks.configs['recommended-latest'],
     ],
-
     languageOptions: {
+      globals: {
+        fetch: false,
+      },
       parser: tslint.parser,
       parserOptions: {
         projectService: true,
