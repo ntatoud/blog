@@ -23,13 +23,17 @@ const headerLinks: Array<HeaderLinkItem> = [
 ];
 ---
 
-<header
-  class="fixed flex w-full items-center justify-center gap-8 bg-white py-4"
->
-  <MaxWidth>
-    <nav class="flex w-full items-center justify-between">
-      <h2><a href="/">{SITE_TITLE}</a></h2>
-      <div class="flex gap-3 text-xs">
+<header class="fixed flex w-full items-center justify-center gap-8 py-4">
+  <MaxWidth className="max-w-5xl">
+    <nav
+      class="borde-input flex w-full items-center justify-between rounded-full border bg-white px-8 py-4 shadow-lg"
+    >
+      <h2 class="font-head text-xl font-semibold tracking-tighter uppercase">
+        <a href="/" class="flex items-center">
+          {SITE_TITLE}<span class="animate-caret-blink duration-300">_</span>
+        </a>
+      </h2>
+      <div class="flex gap-3">
         {
           headerLinks.map((link) => {
             return <HeaderLink href={link.href}>{link.label}</HeaderLink>;
