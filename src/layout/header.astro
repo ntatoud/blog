@@ -23,10 +23,20 @@ const headerLinks: Array<HeaderLinkItem> = [
 ];
 ---
 
-<header class="fixed flex w-full items-center justify-center gap-8 py-4">
-  <MaxWidth className="max-w-5xl">
+<header
+  data-header
+  class="sticky top-0 flex w-full items-center justify-center gap-8 py-4 transition-all [.scrolled]:opacity-70"
+>
+  <div
+    class="handle pointer-events-none absolute bottom-14 left-1/2 h-1 w-16 -translate-x-1/2 rounded-full bg-gray-400 opacity-0 transition in-[.scrolled]:opacity-50 in-[.scrolled:hover]:!opacity-0"
+  >
+  </div>
+
+  <MaxWidth
+    className="max-w-5xl transition-all in-[.scrolled]:-translate-y-[100%] in-[.scrolled:hover]:!translate-y-0"
+  >
     <nav
-      class="borde-input flex w-full items-center justify-between rounded-full border bg-white px-8 py-4 shadow-lg"
+      class="in-[.scrolled]:border-input flex w-full items-center justify-between rounded-2xl bg-white px-8 py-4 in-[.scrolled]:border in-[.scrolled]:shadow-md"
     >
       <h2 class="font-head text-xl font-semibold tracking-tighter uppercase">
         <a href="/" class="flex items-center">
@@ -43,3 +53,21 @@ const headerLinks: Array<HeaderLinkItem> = [
     </nav>
   </MaxWidth>
 </header>
+
+<script is:inline>
+  let lastScrollY = window.scrollY;
+  const header = document.querySelector('[data-header]');
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    const isScrollingDown = currentScroll > lastScrollY;
+
+    if (currentScroll > 10 && isScrollingDown) {
+      header?.classList.add('scrolled');
+    } else if (!isScrollingDown) {
+      header?.classList.remove('scrolled');
+    }
+
+    lastScrollY = currentScroll;
+  });
+</script>
