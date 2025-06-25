@@ -1,0 +1,17 @@
+---
+import { Badge } from '@/components/ui/badge';
+---
+
+<div class="relative flex flex-1">
+  <div class="border-chart-4 absolute flex h-full w-full rounded-lg border">
+    <div>
+      <Badge
+        variant="secondary"
+        className="text-md font-head bg-chart-4 uppercase">🚧 WIP</Badge
+      >
+    </div>
+  </div>
+  <div class="flex flex-1 opacity-20">
+    <slot />
+  </div>
+</div>
