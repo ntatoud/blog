@@ -6,7 +6,9 @@ const today = new Date();
 ---
 
 <footer class="flex w-full py-4">
-  <MaxWidth className="items-center justify-between">
+  <MaxWidth
+    className="flex-col-reverse items-center justify-between gap-2 md:flex"
+  >
     <p class="text-xs tracking-tighter">
       &copy; {today.getFullYear()} TATOUD Noé. All rights reserved.
     </p>

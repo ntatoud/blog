@@ -39,8 +39,9 @@ const headerLinks: Array<HeaderLinkItem> = [
       class="in-[.expanded]:border-input in-[.scrolled]:border-input z-10 flex w-full items-center justify-between rounded-2xl bg-white px-8 py-4 in-[.expanded]:border in-[.expanded]:shadow-md in-[.scrolled]:border in-[.scrolled]:shadow-md"
     >
       <h2 class="font-head text-xl font-semibold tracking-tighter uppercase">
-        <a href="/" class="flex items-center">
-          {SITE_TITLE}<span class="animate-caret-blink duration-300">_</span>
+        <a href="/" class="hidden items-center md:flex">
+          {SITE_TITLE}
+          <span class="animate-caret-blink duration-300">_</span>
         </a>
       </h2>
       <div class="flex gap-3">
@@ -52,29 +53,29 @@ const headerLinks: Array<HeaderLinkItem> = [
       </div>
     </nav>
   </MaxWidth>
+
+  <script is:inline>
+    let lastScrollY = window.scrollY;
+    const header = document.querySelector('[data-header]');
+
+    const HEADER_HEIGHT = 50;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      const isScrollingDown = currentScroll > lastScrollY;
+
+      if (currentScroll > HEADER_HEIGHT && isScrollingDown) {
+        header?.classList.add('scrolled');
+        header?.classList.remove('expanded');
+      } else if (!isScrollingDown) {
+        header?.classList.add('expanded');
+        header?.classList.remove('scrolled');
+      }
+
+      if (currentScroll < HEADER_HEIGHT) {
+        header?.classList.remove('expanded');
+        header?.classList.remove('scrolled');
+      }
+      lastScrollY = currentScroll;
+    });
+  </script>
 </header>
-
-<script is:inline>
-  let lastScrollY = window.scrollY;
-  const header = document.querySelector('[data-header]');
-
-  const HEADER_HEIGHT = 50;
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    const isScrollingDown = currentScroll > lastScrollY;
-
-    if (currentScroll > HEADER_HEIGHT && isScrollingDown) {
-      header?.classList.add('scrolled');
-      header?.classList.remove('expanded');
-    } else if (!isScrollingDown) {
-      header?.classList.add('expanded');
-      header?.classList.remove('scrolled');
-    }
-
-    if (currentScroll < HEADER_HEIGHT) {
-      header?.classList.remove('expanded');
-      header?.classList.remove('scrolled');
-    }
-    lastScrollY = currentScroll;
-  });
-</script>
