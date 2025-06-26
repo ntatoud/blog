@@ -23,6 +23,9 @@ importers:
       '@astrojs/sitemap':
         specifier: 3.4.1
         version: 3.4.1
+      '@fontsource/jetbrains-mono':
+        specifier: 5.2.6
+        version: 5.2.6
       '@fontsource/maple-mono':
         specifier: 5.2.5
         version: 5.2.5
@@ -506,6 +509,9 @@ packages:
   '@eslint/plugin-kit@0.3.1':
     resolution: {integrity: sha512-0J+zgWxHN+xXONWIyPWKFMgVuJoZuGiIFu8yxk7RJjxkzpGmyja5wRFqZIVtjDVOQpV+Rw0iOAjYPE2eQyjr0w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@fontsource/jetbrains-mono@5.2.6':
+    resolution: {integrity: sha512-nz//dBr99hXZmHp10wgNI00qThWImkzRR5PQjvRM+rpmuHO5rYBJCqPPWufidCvmkkryXx/GOP/lgqsM3R3Org==}
 
   '@fontsource/maple-mono@5.2.5':
     resolution: {integrity: sha512-iJR/yQj+7DatkzxJNMu3+1gvq1YOHhCjlS6MBOys/Fw/BEDnhC65mp3RZoBXDbk+00flvRO9b9G/IvxBk82Ekw==}
@@ -3695,6 +3701,8 @@ snapshots:
     dependencies:
       '@eslint/core': 0.14.0
       levn: 0.4.1
+
+  '@fontsource/jetbrains-mono@5.2.6': {}
 
   '@fontsource/maple-mono@5.2.5': {}
 

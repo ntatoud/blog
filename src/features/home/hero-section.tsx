@@ -19,7 +19,7 @@ export function HeroSection() {
         </div>
 
         <div className="mx-auto mt-5 max-w-2xl text-center">
-          <h1 className="font-head scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+          <h1 className="font-head scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
             Hello! I'm Noé Tatoud
           </h1>
         </div>

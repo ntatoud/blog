@@ -3,14 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@font-face {
-  font-family: 'Zaio';
-  src: '/fonts/Zaio.woff2';
-}
-
 @theme inline {
   --font-mono: 'Maple Mono', monospace;
-  --font-head: 'Zaio';
+  --font-head: 'Jetbrains Mono', monospace;
 
   --spacing-safe-top: env(safe-area-inset-top);
   --spacing-safe-bottom: env(safe-area-inset-bottom);
