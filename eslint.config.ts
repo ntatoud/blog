@@ -3,6 +3,7 @@ import eslint from '@eslint/js';
 import astro from 'eslint-plugin-astro';
 import reactHooks from 'eslint-plugin-react-hooks';
 import unicorn from 'eslint-plugin-unicorn';
+import globals from 'globals';
 import tslint from 'typescript-eslint';
 
 export default tslint.config(
@@ -20,7 +21,8 @@ export default tslint.config(
     ],
     languageOptions: {
       globals: {
-        fetch: false,
+        ...globals.browser,
+        ...globals.nodeBuiltin,
       },
       parser: tslint.parser,
       parserOptions: {

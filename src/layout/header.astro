@@ -1,4 +1,5 @@
 ---
+import { ThemeSwitcher } from '@/components/theme-switcher';
 import { SITE_TITLE } from '@/consts';
 import MaxWidth from '@/layout/containers/max-width.astro';
 import HeaderLink from '@/layout/header-link.astro';
@@ -36,7 +37,7 @@ const headerLinks: Array<HeaderLinkItem> = [
     className="max-w-5xl transition-all in-[.scrolled]:-translate-y-[100%] in-[.scrolled:hover]:!translate-y-0"
   >
     <nav
-      class="in-[.expanded]:border-input in-[.scrolled]:border-input flex w-full items-center justify-between rounded-2xl bg-white px-8 py-4 in-[.expanded]:border in-[.expanded]:shadow-md in-[.scrolled]:border in-[.scrolled]:shadow-md"
+      class="in-[.expanded]:border-input in-[.scrolled]:border-input bg-background flex w-full items-center justify-between rounded-2xl px-8 py-4 in-[.expanded]:border in-[.expanded]:shadow-md in-[.scrolled]:border in-[.scrolled]:shadow-md"
     >
       <h2 class="font-head text-xl font-semibold tracking-tighter uppercase">
         <a href="/" class="hidden items-center md:flex">
@@ -44,16 +45,18 @@ const headerLinks: Array<HeaderLinkItem> = [
           <span class="animate-caret-blink duration-300">_</span>
         </a>
       </h2>
-      <div class="flex gap-3">
+      <div class="flex items-center gap-3">
         {
           headerLinks.map((link) => {
             return <HeaderLink href={link.href}>{link.label}</HeaderLink>;
           })
         }
+        <ThemeSwitcher client:load className="ml-4" />
       </div>
     </nav>
   </MaxWidth>
 
+  <!-- Navbar behavior script -->
   <script is:inline>
     let lastScrollY = window.scrollY;
     const header = document.querySelector('[data-header]');
@@ -77,5 +80,33 @@ const headerLinks: Array<HeaderLinkItem> = [
       }
       lastScrollY = currentScroll;
     });
+  </script>
+
+  <!-- Themes script -->
+  <script is:inline>
+    const getThemePreference = () => {
+      if (
+        typeof localStorage !== 'undefined' &&
+        localStorage.getItem('theme')
+      ) {
+        return localStorage.getItem('theme');
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+    };
+    const isDark = getThemePreference() === 'dark';
+    document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+
+    if (typeof localStorage !== 'undefined') {
+      const observer = new MutationObserver(() => {
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class'],
+      });
+    }
   </script>
 </header>
