@@ -14,7 +14,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
       className="relative px-4 py-2 gap-0 mt-4 w-fit"
       style={{ gridArea: skill.id }}
     >
-      <CardTitle className="absolute flex items-center font-head left-2 -top-4 px-2 bg-background text-lg dark:bg-transparent w-fit">
+      <CardTitle className="absolute rounded-lg flex items-center font-head left-2 -top-4 px-2 bg-card border border-input text-lg w-fit">
         <skill.icon className="mr-2 size-4" />
         {skill.title}
       </CardTitle>

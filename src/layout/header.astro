@@ -51,7 +51,7 @@ const headerLinks: Array<HeaderLinkItem> = [
             return <HeaderLink href={link.href}>{link.label}</HeaderLink>;
           })
         }
-        <ThemeSwitcher client:load />
+        <ThemeSwitcher client:load className="ml-4" />
       </div>
     </nav>
   </MaxWidth>
