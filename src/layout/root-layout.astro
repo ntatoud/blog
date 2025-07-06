@@ -1,6 +1,7 @@
 ---
-import { WipTag } from '@/components/ui/wip-tag';
-import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
+import { getPageTitle } from '@/lib/get-page-title';
+import { SITE_DESCRIPTION } from '@/consts';
+import { EnvHint } from '@/features/devtools/env-hint';
 import BaseHead from '@/layout/base-head.astro';
 import MaxWidth from '@/layout/containers/max-width.astro';
 import SafeAreaContainer from '@/layout/containers/safe-area-container.astro';
@@ -18,7 +19,7 @@ interface Props {
   description?: string;
 }
 
-const { description = SITE_DESCRIPTION, title = SITE_TITLE } = Astro.props;
+const { description = SITE_DESCRIPTION, title = getPageTitle() } = Astro.props;
 ---
 
 <!doctype html>
@@ -28,7 +29,7 @@ const { description = SITE_DESCRIPTION, title = SITE_TITLE } = Astro.props;
     <slot name="head" />
   </head>
   <body class="flex min-h-dvh flex-col">
-    <WipTag client:load />
+    <EnvHint client:load />
     <SafeAreaContainer>
       <Header />
       <main class="flex h-full flex-1">
