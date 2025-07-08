@@ -10,7 +10,13 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://noe.tatoud.com',
   integrations: [mdx(), sitemap(), react()],
+  server: {
+    port: 3000,
+  },
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      strictPort: true,
+    },
   },
 });

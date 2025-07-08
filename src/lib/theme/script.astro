@@ -1,0 +1,61 @@
+<script is:inline>
+  const THEMES = ['light', 'dark', 'cosmic-night', 't3-chat'];
+  const FALLBACK = 'system';
+  const THEME_KEY = 'system';
+
+  const isServer = typeof localStorage === 'undefined';
+
+  const getTheme = () => {
+    if (isServer) {
+      return 'system';
+    }
+
+    return localStorage.getItem(THEME_KEY) ?? FALLBACK;
+  };
+
+  const resolveSystemTheme = () =>
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+
+  const applyTheme = (theme) => {
+    const effectiveTheme = theme === 'system' ? resolveSystemTheme() : theme;
+
+    document.documentElement.className = effectiveTheme;
+  };
+
+  // Apply initial theme
+  const theme = getTheme();
+  applyTheme(theme);
+
+  // Persist changes if user or scripts change the theme class
+  if (!isServer) {
+    const observer = new MutationObserver(() => {
+      const currentTheme = THEMES.find(
+        (t) => document.documentElement.className === t
+      );
+      if (!currentTheme) {
+        return;
+      }
+
+      if (currentTheme === resolveSystemTheme()) {
+        localStorage.setItem(THEME_KEY, 'system');
+        return;
+      }
+
+      localStorage.setItem(THEME_KEY, currentTheme);
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+  }
+
+  // Listen for system preference changes when in 'system' mode
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  mediaQuery.addEventListener('change', () => {
+    if (getTheme() === 'system') {
+      applyTheme('system');
+    }
+  });
+</script>
