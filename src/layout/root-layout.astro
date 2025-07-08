@@ -1,7 +1,6 @@
 ---
 import { getPageTitle } from '@/lib/get-page-title';
 import { SITE_DESCRIPTION } from '@/consts';
-import { EnvHint } from '@/features/devtools/env-hint';
 import BaseHead from '@/layout/base-head.astro';
 import MaxWidth from '@/layout/containers/max-width.astro';
 import SafeAreaContainer from '@/layout/containers/safe-area-container.astro';
@@ -13,6 +12,8 @@ import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/600.css';
 import '@fontsource/maple-mono/400.css';
 import '@fontsource/maple-mono/500.css';
+
+import { EnvHint } from '@/features/devtools/env-hint';
 
 interface Props {
   title?: string;
@@ -28,6 +29,7 @@ const { description = SITE_DESCRIPTION, title = getPageTitle() } = Astro.props;
     <BaseHead description={description} title={title} />
     <slot name="head" />
   </head>
+
   <body class="flex min-h-dvh flex-col">
     <EnvHint client:load />
     <SafeAreaContainer>

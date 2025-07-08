@@ -28,7 +28,9 @@ export function HeroSection() {
           <p className="text-muted-foreground text-xl">
             Full-stack{' '}
             <span className="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-2 before:bg-primary -z-10">
-              <span className="relative text-secondary">web developer</span>
+              <span className="relative text-primary-foreground">
+                web developer
+              </span>
             </span>{' '}
             with a passion for crafting sleek web experiences.
           </p>
