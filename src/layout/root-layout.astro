@@ -28,11 +28,6 @@ const { description = SITE_DESCRIPTION, title = getPageTitle() } = Astro.props;
   <head>
     <BaseHead description={description} title={title} />
     <slot name="head" />
-    <script>
-      import { THEME_KEY } from '@/lib/theme';
-
-      document.body.classList.add(localStorage.getItem(THEME_KEY) ?? '');
-    </script>
   </head>
 
   <body class="flex min-h-dvh flex-col">

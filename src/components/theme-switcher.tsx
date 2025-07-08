@@ -1,6 +1,6 @@
 import { Check, MessageCircle, Moon, Stars, Sun } from 'lucide-react';
 
-import { useTheme } from '@/lib/theme';
+import { THEMES, useTheme } from '@/lib/theme';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
@@ -9,14 +9,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-
-const themes = [
-  { key: 'light', label: 'Light' },
-  { key: 'dark', label: 'Dark' },
-  { key: 'system', label: 'System' },
-  { key: 'cosmic-night', label: 'Cosmic night' },
-  { key: 't3-chat', label: 'T3 Chat' },
-] as const;
 
 type ThemeSwitcherProps = {
   className?: string;
@@ -32,7 +24,7 @@ const getIconProps = (className?: string, isRoot?: boolean) =>
   );
 
 export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme('system');
 
   return (
     <DropdownMenu>
@@ -52,7 +44,7 @@ export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {themes.map(({ key, label }) => {
+        {THEMES.map(({ key, label }) => {
           return (
             <DropdownMenuItem key={key} onClick={() => setTheme(key)}>
               {label}
