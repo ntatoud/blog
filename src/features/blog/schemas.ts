@@ -9,4 +9,5 @@ export const zBlogPost = ({ image }: SchemaContext) =>
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     heroImage: image().optional(),
+    published: z.boolean().optional(),
   });

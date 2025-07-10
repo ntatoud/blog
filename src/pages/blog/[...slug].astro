@@ -1,18 +1,18 @@
 ---
 import '@/styles/post.css';
 
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
+
+import type { GetStaticPathsOptions } from 'astro';
 
 import BlogPost from '@/features/blog/layout.astro';
+import { getBlogPostCollection } from '@/features/blog/posts';
 
-export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: post,
-  }));
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = await getBlogPostCollection();
+  return paginate(posts, { pageSize: 19 });
 }
-type Props = CollectionEntry<'blog'>;
+type Props = CollectionEntry<'blogPosts'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
