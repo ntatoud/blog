@@ -1,18 +1,20 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
+import { getPageTitle } from '@/lib/get-page-title';
 import FormattedDate from '@/components/formatted-date.astro';
 import RootLayout from '@/layout/root-layout.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blogPosts'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<RootLayout title={title} description={description}>
+<RootLayout title={getPageTitle(title)} description={description}>
   <article>
     <div>
-      {heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+      {heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
     </div>
     <div>
       <div>

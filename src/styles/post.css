@@ -2,33 +2,50 @@
 
 @theme inline {
   --color-code-title: var(--code-title);
-  --color-code-title-background: var(--code-title-background);
-  --color-code-highlight: var(--code-highlight);
+  --color-code-title-foreground: var(--code-title-foreground);
 }
 
 /* [TODO]: Define for all themes */
 :root {
-  --code-title: oklch(20.463% 0.00002 271.152);
-  --code-title-background: oklch(20.463% 0.00002 271.152 / 0.2);
-  --code-highlight: oklch(79.029% 0.13615 188.83 / 0.2);
+  --code-title: oklch(0.97 0 0);
+  --code-title-foreground: oklch(20.463% 0.00002 271.152);
 }
 
 .dark {
-  --code-title: white;
-  --code-title-background: oklch(20.463% 0.00002 271.152 / 0.2);
-  --code-highlight: oklch(79.029% 0.13615 188.83 / 0.2);
+  --code-title: oklch(0.269 0 0);
+  --code-title-foreground: oklch(0.985 0 0);
 }
 
 .t3-chat {
-  --code-title: oklch(20.463% 0.00002 271.152);
-  --code-title-background: oklch(20.463% 0.00002 271.152 / 0.2);
-  --code-highlight: oklch(79.029% 0.13615 188.83 / 0.2);
+  --code-title: oklch(0.8696 0.0675 334.8991);
+  --code-title-foreground: oklch(0.4448 0.1341 324.7991);
 }
 
 .cosmic-night {
-  --code-title: oklch(20.463% 0.00002 271.152);
-  --code-title-background: oklch(20.463% 0.00002 271.152 / 0.2);
-  --code-highlight: oklch(79.029% 0.13615 188.83 / 0.2);
+  --code-title: oklch(0.3354 0.0828 280.9705);
+  --code-title-foreground: oklch(0.9185 0.0257 285.8834);
+}
+
+@layer base {
+  article {
+    p {
+      @apply py-4;
+    }
+
+    h2,
+    h3,
+    h4 {
+      @apply pt-4 font-semibold;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+  }
 }
 
 @layer components {
@@ -38,7 +55,7 @@
 
     /* Title */
     [data-rehype-pretty-code-title] {
-      @apply bg-code-title-background text-code-title;
+      @apply bg-code-title text-code-title-foreground;
 
       @apply rounded-t-lg px-4 py-2 text-start;
 
@@ -58,10 +75,13 @@
       /* Highlighted blocks */
       [data-highlighted-line],
       [data-highlighted-chars] {
-        @apply bg-code-highlight;
+        @apply bg-yellow-100/10;
 
         &:is([data-line]) {
           @apply border-l-4;
+        }
+        &:is([data-highlighted-chars]) {
+          @apply px-0.5;
         }
       }
 
@@ -85,28 +105,6 @@
     /* Caption */
     [data-rehype-pretty-code-caption] {
       @apply text-center leading-8;
-    }
-  }
-}
-
-@layer base {
-  article {
-    p {
-      @apply py-4;
-    }
-
-    h2,
-    h3,
-    h4 {
-      @apply pt-4 font-semibold;
-    }
-
-    h2 {
-      @apply text-2xl;
-    }
-
-    h3 {
-      @apply text-xl;
     }
   }
 }

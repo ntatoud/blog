@@ -53,16 +53,6 @@
   --color-bearstudio: var(--bearstudio);
 }
 
-@layer base {
-  body {
-    @apply font-mono;
-
-    @media all and (display-mode: standalone) {
-      height: 100lvh; /* Force full height on iOS standalone */
-    }
-  }
-}
-
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -252,12 +242,17 @@
 
   --bearstudio: oklch(31.778% 0.04705 217.555);
 }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono;
+
+    @media all and (display-mode: standalone) {
+      height: 100lvh; /* Force full height on iOS standalone */
+    }
   }
 }
 

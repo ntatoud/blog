@@ -1,26 +1,34 @@
 ---
-import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 
 import FormattedDate from '@/components/formatted-date.astro';
+import { getBlogPostCollection } from '@/features/blog/posts';
 import RootLayout from '@/layout/root-layout.astro';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = await getBlogPostCollection();
 ---
 
 <RootLayout>
   <section>
-    <ul>
+    <ul class="flex gap-16">
       {
         posts.map((post) => (
-          <li>
+          <li class="hover:bg-accent overflow-hidden rounded-lg">
             <a href={`/blog/${post.id}/`}>
-              <img width={720} height={360} src={post.data.heroImage} alt="" />
-              <h4 class="title">{post.data.title}</h4>
-              <p class="date">
-                <FormattedDate date={post.data.pubDate} />
-              </p>
+              {!!post.data.heroImage && (
+                <Image
+                  width={720}
+                  height={360}
+                  src={post.data.heroImage}
+                  alt={post.data.title}
+                />
+              )}
+              <div class="p-1">
+                <h4 class="title">{post.data.title}</h4>
+                <p class="date">
+                  <FormattedDate date={post.data.pubDate} />
+                </p>
+              </div>
             </a>
           </li>
         ))
