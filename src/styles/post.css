@@ -1,0 +1,112 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-code-title: var(--code-title);
+  --color-code-title-background: var(--code-title-background);
+  --color-code-highlight: var(--code-highlight);
+}
+
+/* [TODO]: Define for all themes */
+:root {
+  --code-title: oklch(20.463% 0.00002 271.152);
+  --code-title-background: oklch(20.463% 0.00002 271.152 / 0.2);
+  --code-highlight: oklch(79.029% 0.13615 188.83 / 0.2);
+}
+
+.dark {
+  --code-title: white;
+  --code-title-background: oklch(20.463% 0.00002 271.152 / 0.2);
+  --code-highlight: oklch(79.029% 0.13615 188.83 / 0.2);
+}
+
+.t3-chat {
+  --code-title: oklch(20.463% 0.00002 271.152);
+  --code-title-background: oklch(20.463% 0.00002 271.152 / 0.2);
+  --code-highlight: oklch(79.029% 0.13615 188.83 / 0.2);
+}
+
+.cosmic-night {
+  --code-title: oklch(20.463% 0.00002 271.152);
+  --code-title-background: oklch(20.463% 0.00002 271.152 / 0.2);
+  --code-highlight: oklch(79.029% 0.13615 188.83 / 0.2);
+}
+
+@layer components {
+  /* Code Block */
+  [data-rehype-pretty-code-figure] {
+    @apply py-4;
+
+    /* Title */
+    [data-rehype-pretty-code-title] {
+      @apply bg-code-title-background text-code-title;
+
+      @apply rounded-t-lg px-4 py-2 text-start;
+
+      & + pre {
+        @apply rounded-t-none;
+      }
+    }
+
+    /* Code Section */
+    pre {
+      @apply overflow-scroll rounded-lg py-1;
+
+      [data-line] {
+        @apply px-6;
+      }
+
+      /* Highlighted blocks */
+      [data-highlighted-line],
+      [data-highlighted-chars] {
+        @apply bg-code-highlight;
+
+        &:is([data-line]) {
+          @apply border-l-4;
+        }
+      }
+
+      /* If showLineNumbers */
+      [data-line-numbers] {
+        counter-reset: line;
+
+        & > [data-line]::before {
+          counter-increment: line;
+          content: counter(line);
+
+          @apply mr-8 inline-block w-4 text-right text-gray-500;
+        }
+
+        & > [data-highlighted-line]::before {
+          @apply -ml-1;
+        }
+      }
+    }
+
+    /* Caption */
+    [data-rehype-pretty-code-caption] {
+      @apply text-center leading-8;
+    }
+  }
+}
+
+@layer base {
+  article {
+    p {
+      @apply py-4;
+    }
+
+    h2,
+    h3,
+    h4 {
+      @apply pt-4 font-semibold;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+  }
+}
