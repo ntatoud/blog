@@ -1,0 +1,31 @@
+---
+import { ArrowRight } from 'lucide-react';
+
+import { Link } from '@/components/ui/link';
+import { getBlogPostCollection } from '@/features/blog/posts';
+import { PostCard } from '@/features/blog/posts/post-card';
+
+const posts = await getBlogPostCollection({ limit: 3 });
+---
+
+{
+  posts.length > 0 && (
+    <section>
+      <div class="container mx-auto flex h-fit flex-col gap-4 px-4 py-12 md:px-6 2xl:max-w-[1400px]">
+        <div class="flex">
+          <h2 class="font-head mr-auto text-2xl font-extrabold tracking-tight lg:text-3xl">
+            Latest blog posts
+          </h2>
+          <Link href="/blog" variant="ghost">
+            See more <ArrowRight />
+          </Link>
+        </div>
+        <div class="flex h-fit flex-col justify-center gap-4 md:flex-row">
+          {posts.map((post) => (
+            <PostCard {...post.data} id={post.id} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

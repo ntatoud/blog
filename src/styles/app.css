@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant cosmic-night (&:is(.cosmic-night *));
 @custom-variant t3-chat (&:is(.t3-chat *));
+@custom-variant light (&:is(.light *));
 
 @theme inline {
   --font-mono: 'Maple Mono', monospace;

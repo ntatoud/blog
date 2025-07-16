@@ -23,6 +23,9 @@ importers:
       '@astrojs/sitemap':
         specifier: 3.4.1
         version: 3.4.1
+      '@bearstudio/ui-state':
+        specifier: 1.0.2
+        version: 1.0.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@fontsource/jetbrains-mono':
         specifier: 5.2.6
         version: 5.2.6
@@ -270,6 +273,12 @@ packages:
   '@babel/types@7.27.1':
     resolution: {integrity: sha512-+EzkxvLNfiUeKMgy/3luqfsCWFRXLb7U6wNQTk60tovuckwB15B191tJWvpp4HjiQWdJkCxO3Wbvc6jlk3Xb2Q==}
     engines: {node: '>=6.9.0'}
+
+  '@bearstudio/ui-state@1.0.2':
+    resolution: {integrity: sha512-/O47TMdXKkGRETlBK83DQEL5f9u56+llybHmOzGb8qLSdwzIlKaKDYzJ4IFQw2BglDOX+azEsc3vQ4C7Z9nJaA==}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
 
   '@capsizecss/unpack@2.4.0':
     resolution: {integrity: sha512-GrSU71meACqcmIUxPYOJvGKF0yryjN/L1aCuE9DViCTJI7bfkjgYDPD1zbNDcINJwSSP6UaBZY9GAbYDO7re0Q==}
@@ -3966,6 +3975,11 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
+
+  '@bearstudio/ui-state@1.0.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
 
   '@capsizecss/unpack@2.4.0':
     dependencies:

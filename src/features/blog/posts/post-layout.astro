@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 import { getPageTitle } from '@/lib/get-page-title';
-import FormattedDate from '@/components/formatted-date.astro';
+import { FormattedDate } from '@/components/formatted-date';
 import RootLayout from '@/layout/root-layout.astro';
 
 type Props = CollectionEntry<'blogPosts'>['data'];
