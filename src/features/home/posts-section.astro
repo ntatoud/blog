@@ -22,7 +22,7 @@ const posts = await getBlogPostCollection({ limit: 3 });
         </div>
         <div class="flex h-fit flex-col justify-center gap-4 md:flex-row">
           {posts.map((post) => (
-            <PostCard {...post.data} id={post.id} />
+            <PostCard post={post.data} />
           ))}
         </div>
       </div>

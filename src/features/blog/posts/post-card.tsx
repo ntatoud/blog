@@ -2,7 +2,11 @@ import { cn } from '@/lib/utils';
 import { FormattedDate } from '@/components/formatted-date';
 import type { BlogPost } from '@/features/blog/schemas';
 
-export function PostCard(post: BlogPost & { id: string }) {
+export function PostCard({ post }: { post?: BlogPost & { id: string } }) {
+  if (!post) {
+    return <EmptyPostCard />;
+  }
+
   return (
     <a href={`/blog/${post.id}/`} className="group">
       <article className="rounded-md overflow-hidden bg-sidebar transition-all duration-100">
@@ -39,5 +43,14 @@ export function PostCard(post: BlogPost & { id: string }) {
         </div>
       </article>
     </a>
+  );
+}
+
+function EmptyPostCard() {
+  return (
+    <div className="relative flex bg-secondary/30 w-full uppercase aspect-video rounded-md text-center items-center justify-center overflow-hidden opacity-80">
+      More content soon
+      <div className="absolute bg-accent w-full h-full mask-b-from-30% -z-10"></div>
+    </div>
   );
 }

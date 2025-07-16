@@ -1,6 +1,7 @@
 ---
 import { getUiState } from '@bearstudio/ui-state';
 
+import { HighlightedText } from '@/components/ui/highlighted-text';
 import { getBlogPostCollection } from '@/features/blog/posts';
 import { PostCard } from '@/features/blog/posts/post-card';
 
@@ -13,6 +14,11 @@ const ui = getUiState((set) => {
 });
 ---
 
+<div class="flex w-full items-center justify-center py-24 text-center lg:pt-32">
+  <h1 class="font-head text-3xl font-bold tracking-tight lg:text-4xl">
+    Welcome to my <HighlightedText>blog</HighlightedText>
+  </h1>
+</div>
 <section>
   {
     ui
@@ -25,12 +31,17 @@ const ui = getUiState((set) => {
       })
       .match('default', () => {
         return (
-          <ul class="flex h-fit flex-col justify-center gap-4 md:flex-row">
+          <ul class="flex h-fit flex-col justify-center gap-4 md:flex-row md:flex-wrap">
             {posts.map((post) => (
-              <li>
-                <PostCard {...post.data} id={post.id} />
+              <li class="md:w-[calc(50%-0.5rem)]">
+                <PostCard post={post.data} />
               </li>
             ))}
+            {posts.length <= 2 && (
+              <li class="md:w-[40%]">
+                <PostCard />
+              </li>
+            )}
           </ul>
         );
       })

@@ -10,6 +10,7 @@ export async function getBlogPostCollection({
 }: Params = {}) {
   const blogPosts = (await getCollection('blogPosts'))
     .filter(isPublished)
+    .map(withIdInData)
     .sort(latest);
 
   if (limit) {
@@ -24,3 +25,11 @@ const latest = (post1: BlogPostEntry, post2: BlogPostEntry) =>
 
 const isPublished = (post: BlogPostEntry) =>
   post.data.published || !import.meta.env.PROD;
+
+const withIdInData = ({ data, ...post }: BlogPostEntry) => ({
+  ...post,
+  data: {
+    ...data,
+    id: post.id,
+  },
+});
