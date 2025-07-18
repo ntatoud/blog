@@ -68,6 +68,13 @@
     pre {
       @apply overflow-scroll rounded-lg py-1;
 
+      /* Hide scrollbar */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit- scrollbar {
+        display: none;
+      }
+
       [data-line] {
         @apply px-6;
       }
