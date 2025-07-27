@@ -1,19 +1,9 @@
 ---
 import { HeroSection } from '@/features/home/hero-section';
+import PostsSection from '@/features/home/posts-section.astro';
 import { SkillsSection } from '@/features/home/skills-section';
 ---
 
-<style>
-  .skills-grid {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
-      'empty frontend frontend frontend'
-      'tooling tooling tooling empty-a'
-      'ui-and-styling ui-and-styling testing testing'
-      'empty-b backend backend backend';
-    gap: 1rem;
-  }
-</style>
-
 <HeroSection />
+<PostsSection />
 <SkillsSection />

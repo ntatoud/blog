@@ -1,19 +1,13 @@
-import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { z, type SchemaContext } from 'astro:content';
 
-export const blog = defineCollection({
-  // Load Markdown and MDX files in the `src/content/blog/` directory.
-  loader: glob({
-    base: './src/features/blog/content',
-    pattern: '**/*.{md,mdx}',
-  }),
-  // Type-check frontmatter using a schema
-  schema: z.object({
+export type BlogPost = z.infer<ReturnType<typeof zBlogPost>>;
+export const zBlogPost = ({ image }: SchemaContext) =>
+  z.object({
     title: z.string(),
     description: z.string(),
-    // Transform string to Date object
+    tags: z.array(z.string()).optional(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    heroImage: z.string().optional(),
-  }),
-});
+    heroImage: image().optional(),
+    published: z.boolean().optional(),
+  });

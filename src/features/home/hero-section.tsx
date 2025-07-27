@@ -1,6 +1,9 @@
-import { ChevronRight, Download, Mail } from 'lucide-react';
+import { Download, Mail } from 'lucide-react';
 
+import { BearStudio } from '@/components/icons/brands/bearstudio';
 import { Button } from '@/components/ui/button';
+import { HighlightedText } from '@/components/ui/highlighted-text';
+import { Link } from '@/components/ui/link';
 
 export function HeroSection() {
   return (
@@ -8,13 +11,17 @@ export function HeroSection() {
       <div className="container mx-auto px-4 py-24 md:px-6 lg:py-32 2xl:max-w-[1400px]">
         <div className="flex justify-center">
           <a
-            className="inline-flex items-center gap-x-2 rounded-full border p-1 ps-3 text-sm transition"
-            href="#"
+            className="inline-flex items-center gap-x-1 rounded-full border ps-3 px-2 py-1 text-sm transition"
+            href="https://www.bearstudio.fr/"
+            target="_blank"
+            rel="noreferrer noopener"
           >
-            Check out my latest work
-            <span className="bg-muted-foreground/15 inline-flex items-center justify-center gap-x-2 rounded-full px-2.5 py-1.5 text-sm font-semibold">
-              <ChevronRight className="size-4" />
+            <span className="relative flex size-3 me-1">
+              <span className="absolute inline-flex h-full w-full animate-ping delay-1000 rounded-full bg-accent-foreground opacity-75 duration-[2000ms]"></span>
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-accent-foreground"></span>
             </span>
+            Currently working at Bearstudio
+            <BearStudio className="size-4" />
           </a>
         </div>
 
@@ -26,17 +33,14 @@ export function HeroSection() {
 
         <div className="mx-auto mt-5 max-w-3xl text-center">
           <p className="text-muted-foreground text-xl">
-            Full-stack{' '}
-            <span className="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-2 before:bg-primary -z-10">
-              <span className="relative text-secondary">web developer</span>
-            </span>{' '}
-            with a passion for crafting sleek web experiences.
+            Full-stack <HighlightedText>web developer</HighlightedText> with a
+            passion for crafting sleek web experiences.
           </p>
         </div>
         <div className="mt-8 flex justify-center gap-3">
-          <Button size="lg">
+          <Link href="mailto:noe.tatoud@gmail.com" size="lg">
             <Mail /> Contact me
-          </Button>
+          </Link>
           <Button size="lg" variant="outline">
             <Download /> My Resume
           </Button>

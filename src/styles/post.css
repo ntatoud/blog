@@ -1,0 +1,125 @@
+@theme inline {
+  --color-code-title: var(--code-title);
+  --color-code-title-foreground: var(--code-title-foreground);
+}
+
+/* [TODO]: Define for all themes */
+:root {
+  --code-title: oklch(0.97 0 0);
+  --code-title-foreground: oklch(20.463% 0.00002 271.152);
+}
+
+.dark {
+  --code-title: oklch(0.269 0 0);
+  --code-title-foreground: oklch(0.985 0 0);
+}
+
+.t3-chat {
+  --code-title: oklch(0.8696 0.0675 334.8991);
+  --code-title-foreground: oklch(0.4448 0.1341 324.7991);
+}
+
+.cosmic-night {
+  --code-title: oklch(0.3354 0.0828 280.9705);
+  --code-title-foreground: oklch(0.9185 0.0257 285.8834);
+}
+
+@layer base {
+  article.blog-post {
+    p {
+      @apply py-4;
+    }
+
+    h2,
+    h3,
+    h4 {
+      @apply pt-4 font-semibold;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+
+    hr {
+      @apply mx-auto my-4 max-w-2xl opacity-20;
+    }
+
+    .blog-post-content {
+      img {
+        @apply mx-auto rounded-md shadow-lg;
+      }
+    }
+  }
+}
+
+@layer components {
+  /* Code Block */
+  [data-rehype-pretty-code-figure] {
+    @apply py-4;
+
+    /* Title */
+    [data-rehype-pretty-code-title] {
+      @apply bg-code-title text-code-title-foreground;
+
+      @apply rounded-t-md px-4 py-2 text-start;
+
+      & + pre {
+        @apply rounded-t-none py-1;
+      }
+    }
+
+    /* Code Section */
+    pre {
+      @apply overflow-scroll rounded-md py-3 shadow-lg;
+
+      /* Hide scrollbar */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit- scrollbar {
+        display: none;
+      }
+
+      [data-line] {
+        @apply px-6;
+      }
+
+      /* Highlighted blocks */
+      [data-highlighted-line],
+      [data-highlighted-chars] {
+        @apply bg-yellow-100/10;
+
+        &:is([data-line]) {
+          @apply border-l-4;
+        }
+        &:is([data-highlighted-chars]) {
+          @apply px-0.5;
+        }
+      }
+
+      /* If showLineNumbers */
+      [data-line-numbers] {
+        counter-reset: line;
+
+        & > [data-line]::before {
+          counter-increment: line;
+          content: counter(line);
+
+          @apply mr-8 inline-block w-4 text-right text-gray-500;
+        }
+
+        & > [data-highlighted-line]::before {
+          @apply -ml-1;
+        }
+      }
+    }
+
+    /* Caption */
+    [data-rehype-pretty-code-caption] {
+      @apply text-center leading-8;
+    }
+  }
+}
