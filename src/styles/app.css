@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant cosmic-night (&:is(.cosmic-night *));
 @custom-variant t3-chat (&:is(.t3-chat *));
+@custom-variant light (&:is(.light *));
 
 @theme inline {
   --font-mono: 'Maple Mono', monospace;
@@ -51,16 +52,6 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   --color-bearstudio: var(--bearstudio);
-}
-
-@layer base {
-  body {
-    @apply font-mono;
-
-    @media all and (display-mode: standalone) {
-      height: 100lvh; /* Force full height on iOS standalone */
-    }
-  }
 }
 
 :root {
@@ -252,12 +243,17 @@
 
   --bearstudio: oklch(31.778% 0.04705 217.555);
 }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono;
+
+    @media all and (display-mode: standalone) {
+      height: 100lvh; /* Force full height on iOS standalone */
+    }
   }
 }
 
@@ -272,3 +268,5 @@
     gap: 1rem;
   }
 }
+
+@import './post.css';

@@ -1,0 +1,50 @@
+---
+import { getUiState } from '@bearstudio/ui-state';
+
+import { HighlightedText } from '@/components/ui/highlighted-text';
+import { getBlogPostCollection } from '@/features/blog/posts';
+import { PostCard } from '@/features/blog/posts/post-card';
+
+const posts = await getBlogPostCollection({ limit: 2 });
+
+const ui = getUiState((set) => {
+  if (!posts.length) return set('empty');
+
+  return set('default');
+});
+---
+
+<div class="flex w-full items-center justify-center py-24 text-center lg:pt-32">
+  <h1 class="font-head text-3xl font-bold tracking-tight lg:text-4xl">
+    Welcome to my <HighlightedText>blog</HighlightedText>
+  </h1>
+</div>
+<section>
+  {
+    ui
+      .match('empty', () => {
+        return (
+          <div class="text-muted-foreground my-10 flex w-full flex-col items-center gap-4">
+            There are no blog posts to see yet !
+          </div>
+        );
+      })
+      .match('default', () => {
+        return (
+          <ul class="flex h-fit flex-col justify-center gap-4 md:flex-row md:flex-wrap">
+            {posts.map((post) => (
+              <li class="md:w-[calc(50%-0.5rem)]">
+                <PostCard post={post.data} />
+              </li>
+            ))}
+            {posts.length <= 2 && (
+              <li class="aspect-video md:w-[40%]">
+                <PostCard />
+              </li>
+            )}
+          </ul>
+        );
+      })
+      .exhaustive()
+  }
+</section>
