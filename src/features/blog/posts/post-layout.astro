@@ -12,25 +12,60 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <RootLayout title={getPageTitle(title)} description={description}>
-  <article>
-    <div>
-      {heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-    </div>
-    <div>
-      <div>
-        <div>
-          <FormattedDate date={pubDate} />
-          {
-            updatedDate && (
-              <div>
-                Last updated on <FormattedDate date={updatedDate} />
-              </div>
-            )
-          }
-        </div>
-        <h1>{title}</h1>
-        <hr />
+  <article class="blog-post">
+    <div
+      class="relative left-1/2 -z-10 container w-[75vw] -translate-x-1/2 px-4 xl:px-0"
+    >
+      <div
+        class="from-background via-background/80 pointer-events-none absolute inset-0 flex h-full w-full bg-gradient-to-t"
+      >
       </div>
+      <div
+        class="bg-background/20 pointer-events-none absolute inset-0 flex h-full w-full"
+      >
+      </div>
+      {
+        heroImage && (
+          <Image
+            src={heroImage}
+            alt={title}
+            class="h-[510px] w-full rounded-lg object-cover"
+            widths={[400, 800, 1020]}
+            sizes="100vw"
+            format="webp"
+          />
+        )
+      }
+    </div>
+
+    <div
+      class="-mt-32 mb-12 flex w-full flex-col items-center gap-4 text-center"
+    >
+      <h1
+        class="font-head text-primary text-4xl font-bold tracking-tight lg:text-5xl"
+      >
+        {title}
+      </h1>
+      <div>
+        <FormattedDate
+          date={pubDate}
+          className="text-muted-foreground text-lg"
+        />
+        {
+          updatedDate && (
+            <div>
+              Last updated on <FormattedDate date={updatedDate} />
+            </div>
+          )
+        }
+      </div>
+    </div>
+
+    <div class="blog-post-content mx-auto max-w-3xl">
+      <div>
+        {description}
+      </div>
+      <hr class="h-0.5 bg-black" />
       <slot />
     </div>
   </article>

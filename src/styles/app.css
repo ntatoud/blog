@@ -268,3 +268,5 @@
     gap: 1rem;
   }
 }
+
+@import './post.css';
