@@ -5,7 +5,7 @@ import { Link } from '@/components/ui/link';
 import { getBlogPostCollection } from '@/features/blog/posts';
 import { PostCard } from '@/features/blog/posts/post-card';
 
-const posts = await getBlogPostCollection({ limit: 3 });
+const posts = await getBlogPostCollection({ limit: 1 });
 ---
 
 {
@@ -13,18 +13,25 @@ const posts = await getBlogPostCollection({ limit: 3 });
     <section>
       <div class="container mx-auto flex h-fit flex-col gap-4 px-4 py-12 md:px-6 2xl:max-w-[1400px]">
         <div class="flex">
-          <h2 class="font-head mr-auto text-2xl font-extrabold tracking-tight lg:text-3xl">
+          <h2 class="font-head mr-auto text-xl font-extrabold tracking-tight lg:text-3xl">
             Latest blog posts
           </h2>
           <Link href="/blog" variant="ghost">
             See more <ArrowRight />
           </Link>
         </div>
-        <div class="flex h-fit flex-col justify-center gap-4 md:flex-row">
+        <ul class="flex flex-col justify-center gap-4 md:flex-row md:flex-wrap md:items-stretch">
           {posts.map((post) => (
-            <PostCard post={post.data} />
+            <li class="md:w-[calc(50%-0.5rem)]">
+              <PostCard post={post.data} />
+            </li>
           ))}
-        </div>
+          {posts.length <= 1 && (
+            <li class="md:w-[calc(50%-0.5rem)]">
+              <PostCard />
+            </li>
+          )}
+        </ul>
       </div>
     </section>
   )

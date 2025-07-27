@@ -36,7 +36,7 @@ export function PostCard({ post }: { post?: BlogPost & { id: string } }) {
 
 function EmptyPostCard() {
   return (
-    <div className="relative flex bg-secondary/30 w-full uppercase aspect-video rounded-md text-center items-center justify-center overflow-hidden opacity-80">
+    <div className="relative flex h-full bg-secondary/30 w-full uppercase rounded-md text-center items-center justify-center overflow-hidden opacity-80">
       More content soon
       <div className="absolute bg-accent w-full h-full mask-b-from-30% -z-10"></div>
     </div>

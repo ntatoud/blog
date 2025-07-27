@@ -11,9 +11,6 @@ export type LinkProps = Omit<React.ComponentProps<'a'>, 'href'> & {
 
 export function Link({ variant, size, className, ...rest }: LinkProps) {
   return (
-    <a
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...rest}
-    ></a>
+    <a className={cn(buttonVariants({ variant, size, className }))} {...rest} />
   );
 }

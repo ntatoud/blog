@@ -5,7 +5,7 @@ export function SkillsSection() {
   return (
     <section>
       <div className="container mx-auto px-4 py-24 md:px-6 lg:py-32 2xl:max-w-[1400px] flex flex-col gap-4">
-        <h2 className="mx-auto font-head text-2xl font-extrabold tracking-tight lg:text-3xl">
+        <h2 className="mx-auto font-head text-xl font-extrabold tracking-tight lg:text-3xl">
           Skills
         </h2>
         <div className="flex flex-col md:grid skills-grid">

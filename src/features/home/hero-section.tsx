@@ -3,6 +3,7 @@ import { Download, Mail } from 'lucide-react';
 import { BearStudio } from '@/components/icons/brands/bearstudio';
 import { Button } from '@/components/ui/button';
 import { HighlightedText } from '@/components/ui/highlighted-text';
+import { Link } from '@/components/ui/link';
 
 export function HeroSection() {
   return (
@@ -37,9 +38,9 @@ export function HeroSection() {
           </p>
         </div>
         <div className="mt-8 flex justify-center gap-3">
-          <Button size="lg">
+          <Link href="mailto:noe.tatoud@gmail.com" size="lg">
             <Mail /> Contact me
-          </Button>
+          </Link>
           <Button size="lg" variant="outline">
             <Download /> My Resume
           </Button>

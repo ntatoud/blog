@@ -5,7 +5,7 @@ import { HighlightedText } from '@/components/ui/highlighted-text';
 import { getBlogPostCollection } from '@/features/blog/posts';
 import { PostCard } from '@/features/blog/posts/post-card';
 
-const posts = await getBlogPostCollection();
+const posts = await getBlogPostCollection({ limit: 2 });
 
 const ui = getUiState((set) => {
   if (!posts.length) return set('empty');
@@ -38,7 +38,7 @@ const ui = getUiState((set) => {
               </li>
             ))}
             {posts.length <= 2 && (
-              <li class="md:w-[40%]">
+              <li class="aspect-video md:w-[40%]">
                 <PostCard />
               </li>
             )}
