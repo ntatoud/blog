@@ -27,7 +27,7 @@ const posts = await getBlogPostCollection({ limit: 1 });
             </li>
           ))}
           {posts.length <= 1 && (
-            <li class="md:w-[calc(50%-0.5rem)]">
+            <li class="aspect-video md:w-[calc(50%-0.5rem)]">
               <PostCard />
             </li>
           )}
