@@ -17,7 +17,17 @@ const { title, description, pubDate, updatedDate, heroImage, translations } =
 
 <RootLayout title={getPageTitle(title)} description={description}>
   <article class="blog-post pb-24 md:pb-32">
-    <div class="relative max-w-7xl overflow-hidden">
+    <div
+      class="relative left-1/2 -z-10 container w-[98vw] -translate-x-1/2 md:w-[75vw] md:px-4 xl:px-0"
+    >
+      <div
+        class="from-background via-background/80 pointer-events-none absolute inset-0 flex h-full w-full bg-gradient-to-t"
+      >
+      </div>
+      <div
+        class="bg-background/20 pointer-events-none absolute inset-0 flex h-full w-full"
+      >
+      </div>
       {
         heroImage && (
           <>
