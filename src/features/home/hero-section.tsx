@@ -1,7 +1,6 @@
 import { Download, Mail } from 'lucide-react';
 
 import { BearStudio } from '@/components/icons/brands/bearstudio';
-import { Button } from '@/components/ui/button';
 import { HighlightedText } from '@/components/ui/highlighted-text';
 import { Link } from '@/components/ui/link';
 
@@ -41,9 +40,14 @@ export function HeroSection() {
           <Link href="mailto:noe.tatoud@gmail.com" size="lg">
             <Mail /> Contact me
           </Link>
-          <Button size="lg" variant="outline">
+          <Link
+            size="lg"
+            variant="outline"
+            href="/resources/resume-noe-tatoud.pdf"
+            download
+          >
             <Download /> My Resume
-          </Button>
+          </Link>
         </div>
       </div>
     </section>
