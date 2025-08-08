@@ -32,8 +32,8 @@ export const MCPSchema = () => {
         <text
           x="110.85832977294922"
           y="19.08"
-          font-size="20px"
-          text-anchor="middle"
+          fontSize="20px"
+          textAnchor="middle"
           fill="currentColor"
         >
           MCP Hosts with a Client
@@ -41,18 +41,15 @@ export const MCPSchema = () => {
         <text
           x="110.85832977294922"
           y="44.08"
-          font-size="20px"
-          text-anchor="middle"
+          fontSize="20px"
+          textAnchor="middle"
           direction="ltr"
           fill="currentColor"
         >
           (Cursor, Claude, ...){' '}
         </text>
       </g>
-      <g
-        stroke-linecap="round"
-        transform="translate(553 10) rotate(0 109 45.5)"
-      >
+      <g strokeLinecap="round" transform="translate(553 10) rotate(0 109 45.5)">
         <path
           d="M22.75 0 C78.46 0, 134.18 0, 195.25 0 M22.75 0 C82.1 0, 141.45 0, 195.25 0 M195.25 0 C210.42 0, 218 7.58, 218 22.75 M195.25 0 C210.42 0, 218 7.58, 218 22.75 M218 22.75 C218 34.79, 218 46.82, 218 68.25 M218 22.75 C218 40.1, 218 57.46, 218 68.25 M218 68.25 C218 83.42, 210.42 91, 195.25 91 M218 68.25 C218 83.42, 210.42 91, 195.25 91 M195.25 91 C152 91, 108.75 91, 22.75 91 M195.25 91 C134.81 91, 74.36 91, 22.75 91 M22.75 91 C7.58 91, 0 83.42, 0 68.25 M22.75 91 C7.58 91, 0 83.42, 0 68.25 M0 68.25 C0 54.78, 0 41.3, 0 22.75 M0 68.25 C0 54.54, 0 40.84, 0 22.75 M0 22.75 C0 7.58, 7.58 0, 22.75 0 M0 22.75 C0 7.58, 7.58 0, 22.75 0"
           fill="none"
@@ -62,8 +59,8 @@ export const MCPSchema = () => {
         <text
           x="63.81666564941406"
           y="19.08"
-          font-size="20px"
-          text-anchor="middle"
+          fontSize="20px"
+          textAnchor="middle"
           direction="ltr"
           fill="currentColor"
         >
@@ -71,7 +68,7 @@ export const MCPSchema = () => {
         </text>
       </g>
       <g
-        stroke-linecap="round"
+        strokeLinecap="round"
         transform="translate(553 239) rotate(0 109 45.5)"
       >
         <path
@@ -83,8 +80,8 @@ export const MCPSchema = () => {
         <text
           x="63.233333587646484"
           y="19.08"
-          font-size="20px"
-          text-anchor="middle"
+          fontSize="20px"
+          textAnchor="middle"
           direction="ltr"
           fill="currentColor"
         >
@@ -92,7 +89,7 @@ export const MCPSchema = () => {
         </text>
       </g>
       <g
-        stroke-linecap="round"
+        strokeLinecap="round"
         transform="translate(553 124.5) rotate(0 109 45.5)"
       >
         <path
@@ -104,8 +101,8 @@ export const MCPSchema = () => {
         <text
           x="63.275001525878906"
           y="19.08"
-          font-size="20px"
-          text-anchor="middle"
+          fontSize="20px"
+          textAnchor="middle"
           direction="ltr"
           fill="currentColor"
         >
@@ -116,8 +113,8 @@ export const MCPSchema = () => {
         <text
           x="0"
           y="19.08"
-          font-size="20px"
-          text-anchor="start"
+          fontSize="20px"
+          textAnchor="start"
           direction="ltr"
           fill="currentColor"
         >
@@ -128,8 +125,8 @@ export const MCPSchema = () => {
         <text
           x="0"
           y="19.08"
-          font-size="20px"
-          text-anchor="start"
+          fontSize="20px"
+          textAnchor="start"
           direction="ltr"
           fill="currentColor"
         >
@@ -138,27 +135,27 @@ export const MCPSchema = () => {
         <text
           x="0"
           y="44.08"
-          font-size="20px"
-          text-anchor="start"
+          fontSize="20px"
+          textAnchor="start"
           direction="ltr"
           fill="currentColor"
         >
-          (GitHub, Slack, Notion, ...)
+          (GitHub, Slack, ...)
         </text>
       </g>
       <g transform="translate(907 273) rotate(0 86.67500305175781 12.5)">
         <text
           x="0"
           y="19.08"
-          font-size="20px"
-          text-anchor="start"
+          fontSize="20px"
+          textAnchor="start"
           direction="ltr"
           fill="currentColor"
         >
           External databases
         </text>
       </g>
-      <g stroke-linecap="round">
+      <g strokeLinecap="round">
         <g transform="translate(771.9210827792881 56.249034108081844) rotate(0 64.03945861035595 0)">
           <path
             d="M0 0 C21.35 0, 106.73 0, 128.08 0 M0 0 C21.35 0, 106.73 0, 128.08 0"
@@ -179,7 +176,7 @@ export const MCPSchema = () => {
         </g>
       </g>
       <mask></mask>
-      <g stroke-linecap="round">
+      <g strokeLinecap="round">
         <g transform="translate(771.0000003896439 170) rotate(0 64.03945861035595 0)">
           <path
             d="M0 0 C21.35 0, 106.73 0, 128.08 0 M0 0 C21.35 0, 106.73 0, 128.08 0"
@@ -200,7 +197,7 @@ export const MCPSchema = () => {
         </g>
       </g>
       <mask></mask>
-      <g stroke-linecap="round">
+      <g strokeLinecap="round">
         <g transform="translate(771.0000003896437 284.5) rotate(0 64.03945861035595 0)">
           <path
             d="M0 0 C21.35 0, 106.73 0, 128.08 0 M0 0 C21.35 0, 106.73 0, 128.08 0"
@@ -221,7 +218,7 @@ export const MCPSchema = () => {
         </g>
       </g>
       <mask></mask>
-      <g stroke-linecap="round">
+      <g strokeLinecap="round">
         <g transform="translate(351 169.89999999999998) rotate(0 98.5 -57.25)">
           <path
             d="M0 0 C29.53 0, 59.06 0, 82.5 0 M0 0 C22.93 0, 45.86 0, 82.5 0 M82.5 0 C93.17 0, 98.5 -5.33, 98.5 -16 M82.5 0 C93.17 0, 98.5 -5.33, 98.5 -16 M98.5 -16 C98.5 -43.52, 98.5 -71.04, 98.5 -98.5 M98.5 -16 C98.5 -40.34, 98.5 -64.68, 98.5 -98.5 M98.5 -98.5 C98.5 -109.17, 103.83 -114.5, 114.5 -114.5 M98.5 -98.5 C98.5 -109.17, 103.83 -114.5, 114.5 -114.5 M114.5 -114.5 C138.47 -114.5, 162.43 -114.5, 197 -114.5 M114.5 -114.5 C131.77 -114.5, 149.03 -114.5, 197 -114.5"
@@ -242,7 +239,7 @@ export const MCPSchema = () => {
         </g>
       </g>
       <mask></mask>
-      <g stroke-linecap="round">
+      <g strokeLinecap="round">
         <g transform="translate(351 169.89999999999998) rotate(0 98.5 57.25)">
           <path
             d="M0 0 C16.74 0, 33.47 0, 82.5 0 M0 0 C20.16 0, 40.31 0, 82.5 0 M82.5 0 C93.17 0, 98.5 5.33, 98.5 16 M82.5 0 C93.17 0, 98.5 5.33, 98.5 16 M98.5 16 C98.5 36.79, 98.5 57.59, 98.5 98.5 M98.5 16 C98.5 41.22, 98.5 66.44, 98.5 98.5 M98.5 98.5 C98.5 109.17, 103.83 114.5, 114.5 114.5 M98.5 98.5 C98.5 109.17, 103.83 114.5, 114.5 114.5 M114.5 114.5 C145.79 114.5, 177.09 114.5, 197 114.5 M114.5 114.5 C142.88 114.5, 171.26 114.5, 197 114.5"
@@ -263,7 +260,7 @@ export const MCPSchema = () => {
         </g>
       </g>
       <mask></mask>
-      <g stroke-linecap="round">
+      <g strokeLinecap="round">
         <g transform="translate(351 169.89999999999998) rotate(0 98.5 0)">
           <path
             d="M0 0 C76.46 0, 152.92 0, 197 0 M0 0 C78.6 0, 157.2 0, 197 0"
@@ -288,8 +285,8 @@ export const MCPSchema = () => {
         <text
           x="0"
           y="15.264000000000001"
-          font-size="16px"
-          text-anchor="start"
+          fontSize="16px"
+          textAnchor="start"
           direction="ltr"
           fill="currentColor"
         >

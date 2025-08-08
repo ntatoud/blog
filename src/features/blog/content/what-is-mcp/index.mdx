@@ -52,7 +52,7 @@ That’s precisely what **AI agents** enable.
 **AI Agent**: the next level. It can **act on its own**, make decisions **without being told**, and adapt to what’s happening. For example, an AI agent could monitor your inbox, detect an important meeting, book a taxi, and notify you, without you having to ask.  
 👉 **It’s autonomous, smart, and learns over time.**
 
-_We won't go into detail about how AI agents work, but you can read this intro article from Google: [Google Cloud - What are AI agents?](https://cloud.google.com/discover/what-are-ai-agents?hl=fr)_
+_We won't go into detail about how AI agents work, but you can read this intro article from Google: <a href="https://cloud.google.com/discover/what-are-ai-agents?hl=fr" className="underline not-italic hover:no-underline hover:opacity-80">Google Cloud - What are AI agents?</a>_
 
 So far, one of the main constraints when creating an agent was building very specific, custom connectors for every data source and model. This approach is tedious, hard to scale, and rarely reusable.
 
@@ -71,13 +71,13 @@ Behind the Model Context Protocol is a simple but powerful idea: allow an AI to 
 
 #### The key roles:
 
-**MCP Hosts**: apps like Claude Desktop, IDEs, or AI tools that want to access different capabilities or data sources via MCP.  
+**MCP Hosts**: apps like Claude Desktop, IDEs, or AI tools that want to access different capabilities or data sources via MCP.
 👉 **They send requests to enrich their context (code, files, docs, etc.) using the protocol.**
 
-**MCP Clients**: intermediate components that handle a 1:1 connection with an MCP server.  
+**MCP Clients**: intermediate components that handle a 1:1 connection with an MCP server.
 👉 **They translate host requests into calls to a specific MCP server and ensure the communication between them.**
 
-**MCP Servers**: small standalone programs that expose a capability or data type through the MCP protocol (e.g. local files, Git history, knowledge base…).  
+**MCP Servers**: small standalone programs that expose a capability or data type through the MCP protocol (e.g. local files, Git history, knowledge base…).
 👉 **Each server is specialized and can be combined with others to expand a host’s capabilities.**
 
 #### What about AI assistants in our IDEs?
