@@ -27,25 +27,30 @@
 @layer base {
   article.blog-post {
     p {
-      @apply py-4;
+      @apply py-2;
     }
 
     h2,
     h3,
     h4 {
-      @apply pt-4 font-semibold;
+      @apply pt-6 font-semibold;
+    }
+
+    code:not(pre code) {
+      @apply bg-foreground/80 text-background rounded-sm px-1 py-0.5;
     }
 
     h2 {
       @apply text-2xl;
     }
 
-    h3 {
+    h3,
+    h4 {
       @apply text-xl;
     }
 
     hr {
-      @apply mx-auto my-4 max-w-2xl opacity-20;
+      @apply mx-auto my-4 max-w-2xl opacity-60;
     }
 
     .blog-post-content {
@@ -63,7 +68,7 @@
 
     /* Title */
     [data-rehype-pretty-code-title] {
-      @apply bg-code-title text-code-title-foreground;
+      @apply bg-code-title text-code-title-foreground font-semibold;
 
       @apply rounded-t-md px-4 py-2 text-start;
 
