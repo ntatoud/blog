@@ -3,43 +3,44 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 import { getPageTitle } from '@/lib/get-page-title';
+import { cn } from '@/lib/utils';
 import { FormattedDate } from '@/components/formatted-date';
+import { Link } from '@/components/ui/link';
 import RootLayout from '@/layout/root-layout.astro';
 
 type Props = CollectionEntry<'blogPosts'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, translations } =
+  Astro.props;
 ---
 
 <RootLayout title={getPageTitle(title)} description={description}>
-  <article class="blog-post">
-    <div
-      class="relative left-1/2 -z-10 container w-[75vw] -translate-x-1/2 px-4 xl:px-0"
-    >
-      <div
-        class="from-background via-background/80 pointer-events-none absolute inset-0 flex h-full w-full bg-gradient-to-t"
-      >
-      </div>
-      <div
-        class="bg-background/20 pointer-events-none absolute inset-0 flex h-full w-full"
-      >
-      </div>
+  <article class="blog-post pb-24 md:pb-32">
+    <div class="relative max-w-7xl overflow-hidden">
       {
         heroImage && (
-          <Image
-            src={heroImage}
-            alt={title}
-            class="h-[510px] w-full rounded-lg object-cover"
-            widths={[400, 800, 1020]}
-            sizes="100vw"
-            format="webp"
-          />
+          <>
+            <div class="from-background via-background/80 pointer-events-none absolute inset-0 bg-gradient-to-t" />
+            <div class="bg-background/20 pointer-events-none absolute inset-0" />
+            <Image
+              src={heroImage}
+              alt={title}
+              class="h-full w-full rounded-lg object-cover"
+              widths={[640, 1280, 1920, 2560]}
+              sizes="(max-width: 640px) 640px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, 2560px"
+              quality={100}
+              format="webp"
+            />
+          </>
         )
       }
     </div>
 
     <div
-      class="-mt-32 mb-12 flex w-full flex-col items-center gap-4 text-center"
+      class={cn(
+        'relative mb-12 flex w-full flex-col items-center gap-4 px-4 text-center xl:px-0',
+        heroImage ? '-mt-32' : 'mt-24'
+      )}
     >
       <h1
         class="font-head text-primary text-4xl font-bold tracking-tight lg:text-5xl"
@@ -49,7 +50,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       <div>
         <FormattedDate
           date={pubDate}
-          className="text-muted-foreground text-lg"
+          className="text-muted-foreground md:text-lg"
         />
         {
           updatedDate && (
@@ -61,11 +62,24 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       </div>
     </div>
 
-    <div class="blog-post-content mx-auto max-w-3xl">
-      <div>
-        {description}
-      </div>
-      <hr class="h-0.5 bg-black" />
+    <div class="blog-post-content mx-auto max-w-[52rem]">
+      {
+        translations?.map(({ flag, name, url }) => (
+          <div class="mb-4 flex flex-col items-center gap-2 md:flex-row">
+            This article is also available in:
+            <Link
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              size="sm"
+            >
+              {`${flag} ${name}`}
+            </Link>
+          </div>
+        ))
+      }
+
       <slot />
     </div>
   </article>
