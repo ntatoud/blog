@@ -6,6 +6,7 @@ import { getPageTitle } from '@/lib/get-page-title';
 import { cn } from '@/lib/utils';
 import { FormattedDate } from '@/components/formatted-date';
 import { Link } from '@/components/ui/link';
+import Prose from '@/components/ui/prose.astro';
 import RootLayout from '@/layout/root-layout.astro';
 
 type Props = CollectionEntry<'blogPosts'>['data'];
@@ -79,8 +80,9 @@ const { title, description, pubDate, updatedDate, heroImage, translations } =
           </div>
         ))
       }
-
-      <slot />
+      <Prose>
+        <slot />
+      </Prose>
     </div>
   </article>
 </RootLayout>
