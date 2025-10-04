@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+
+import { FormattedDate } from '@/components/formatted-date';
+import type { BlogPost } from '@/features/blog/schemas';
+
+interface Props {
+  post?: BlogPost & { id: string };
+}
+
+const { post } = Astro.props;
+---
+
+{
+  post ? (
+    <a href={`/blog/${post.id}/`} class="group">
+      <article class="bg-secondary/80 relative h-full overflow-hidden rounded-md transition-all duration-100">
+        <div class="mask-b-from-30%">
+          {!!post.heroImage && (
+            <Image
+              src={post.heroImage}
+              alt={post.title}
+              class="aspect-video w-full object-cover transition-all group-hover:scale-110"
+              widths={[640, 1280, 1920, 2560]}
+              sizes="(max-width: 640px) 640px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, 2560px"
+              quality={100}
+              format="webp"
+            />
+          )}
+        </div>
+
+        <div class="relative -mt-14 space-y-1 p-4">
+          <FormattedDate
+            date={post.pubDate}
+            className="text-xs uppercase opacity-80 font-light"
+          />
+          <div class="group-hover:text-primary/90 line-clamp-2 text-xl font-semibold">
+            {post.title}
+          </div>
+          {post.tags && <p>{post.tags.join(', ')}</p>}
+        </div>
+      </article>
+    </a>
+  ) : (
+    <div class="bg-secondary/30 relative flex h-full w-full items-center justify-center overflow-hidden rounded-md text-center uppercase opacity-80">
+      More content soon
+      <div class="bg-accent absolute -z-10 h-full w-full mask-b-from-30%" />
+    </div>
+  )
+}

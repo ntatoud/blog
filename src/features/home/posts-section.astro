@@ -2,7 +2,7 @@
 import { ArrowRight } from 'lucide-react';
 
 import { Link } from '@/components/ui/link';
-import { PostCard } from '@/features/blog/post-card';
+import PostCard from '@/features/blog/post-card.astro';
 import { getBlogPostCollection } from '@/features/blog/posts';
 
 const posts = await getBlogPostCollection({ limit: 1 });
