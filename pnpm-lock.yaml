@@ -64,6 +64,7 @@ importers:
       astro-seo-schema:
         specifier: 5.1.0
         version: 5.1.0(astro@5.14.1(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.9.2)(yaml@2.8.0))(schema-dts@1.1.5)
+<<<<<<< HEAD
 =======
 >>>>>>> 8899d60 (chore: run astro upgrade)
 =======
@@ -71,6 +72,8 @@ importers:
         specifier: 1.0.0
         version: 1.0.0
 >>>>>>> f172ff5 (feat(seo): robots.txt)
+=======
+>>>>>>> 8e856b7 (feat(seo): astro-seo & json-ld schema)
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -1573,6 +1576,7 @@ packages:
   astro-seo@0.8.4:
     resolution: {integrity: sha512-Ou1vzQSXAxa0K8rtNtXNvSpYqOGEgMhh0immMxJeXmbVZac3UKCNWAoXWyOQDFYsZvBugCRSg0N1phBqPMVgCw==}
 
+<<<<<<< HEAD
 =======
 >>>>>>> 8899d60 (chore: run astro upgrade)
 =======
@@ -1580,6 +1584,8 @@ packages:
     resolution: {integrity: sha512-6JQSLid4gMhoWjOm85UHLkgrw0+hHIjnJVIUqxjU2D6feKlVyYukMNYjH44ZDZBK1P8hNxd33PgWlHzCASvedA==}
 
 >>>>>>> f172ff5 (feat(seo): robots.txt)
+=======
+>>>>>>> 8e856b7 (feat(seo): astro-seo & json-ld schema)
   astro@5.14.1:
     resolution: {integrity: sha512-gPa8NY7/lP8j8g81iy8UwANF3+aukKRWS68IlthZQNgykpg80ne6lbHOp6FErYycxQ1TUhgEfkXVDQZAoJx8Bg==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
@@ -5268,6 +5274,9 @@ snapshots:
       zod: 3.25.74
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8e856b7 (feat(seo): astro-seo & json-ld schema)
   astro-seo-schema@5.1.0(astro@5.14.1(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.9.2)(yaml@2.8.0))(schema-dts@1.1.5):
     dependencies:
       astro: 5.14.1(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.9.2)(yaml@2.8.0)
@@ -5281,10 +5290,13 @@ snapshots:
       - prettier-plugin-astro
       - typescript
 
+<<<<<<< HEAD
 =======
 >>>>>>> 8899d60 (chore: run astro upgrade)
 =======
 >>>>>>> f172ff5 (feat(seo): robots.txt)
+=======
+>>>>>>> 8e856b7 (feat(seo): astro-seo & json-ld schema)
   astro@5.14.1(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.9.2)(yaml@2.8.0):
     dependencies:
       '@astrojs/compiler': 2.12.2
