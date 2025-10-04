@@ -1,8 +1,21 @@
 ---
+import { Schema } from 'astro-seo-schema';
+
+import SEO from '@/components/seo.astro';
+import { SITE_TITLE } from '@/consts';
 import PageHome from '@/features/home/page.astro';
 import RootLayout from '@/layout/root-layout.astro';
 ---
 
 <RootLayout>
+  <SEO slot="seo" />
+  <Schema
+    slot="ld+json"
+    item={{
+      '@type': 'WebSite',
+      '@context': 'https://schema.org',
+      name: SITE_TITLE,
+    }}
+  />
   <PageHome />
 </RootLayout>

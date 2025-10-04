@@ -24,48 +24,9 @@
   --code-title-foreground: oklch(0.9185 0.0257 285.8834);
 }
 
-@layer base {
-  article.blog-post {
-    p {
-      @apply py-2;
-    }
-
-    h2,
-    h3,
-    h4 {
-      @apply pt-6 font-semibold;
-    }
-
-    code:not(pre code) {
-      @apply bg-foreground/80 text-background rounded-sm px-1 py-0.5;
-    }
-
-    h2 {
-      @apply text-2xl;
-    }
-
-    h3,
-    h4 {
-      @apply text-xl;
-    }
-
-    hr {
-      @apply mx-auto my-4 max-w-2xl opacity-60;
-    }
-
-    .blog-post-content {
-      img {
-        @apply mx-auto rounded-md shadow-lg;
-      }
-    }
-  }
-}
-
-@layer components {
+@layer utilities {
   /* Code Block */
   [data-rehype-pretty-code-figure] {
-    @apply py-4;
-
     /* Title */
     [data-rehype-pretty-code-title] {
       @apply bg-code-title text-code-title-foreground font-semibold;
@@ -79,7 +40,7 @@
 
     /* Code Section */
     pre {
-      @apply overflow-scroll rounded-md py-3 shadow-lg;
+      @apply overflow-scroll rounded-md px-0 py-3 shadow-lg;
 
       /* Hide scrollbar */
       -ms-overflow-style: none;

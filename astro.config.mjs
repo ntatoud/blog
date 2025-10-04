@@ -1,4 +1,5 @@
 // @ts-check
+import robotsTxt from 'astro-robots-txt';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
@@ -10,7 +11,19 @@ import rehypePrettyCode from 'rehype-pretty-code';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://noe.tatoud.com',
-  integrations: [mdx(), sitemap(), react()],
+  integrations: [
+    mdx(),
+    react(),
+    sitemap(),
+    robotsTxt({
+      policy: [
+        {
+          userAgent: '*',
+          allow: '/',
+        },
+      ],
+    }),
+  ],
   server: {
     port: 3000,
   },
