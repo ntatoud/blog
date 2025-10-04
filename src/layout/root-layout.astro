@@ -1,7 +1,4 @@
 ---
-import { getPageTitle } from '@/lib/get-page-title';
-import { SITE_DESCRIPTION } from '@/consts';
-import BaseHead from '@/layout/base-head.astro';
 import MaxWidth from '@/layout/containers/max-width.astro';
 import SafeAreaContainer from '@/layout/containers/safe-area-container.astro';
 import Footer from '@/layout/footer.astro';
@@ -20,8 +17,6 @@ interface Props {
   title?: string;
   description?: string;
 }
-
-const { description = SITE_DESCRIPTION, title = getPageTitle() } = Astro.props;
 ---
 
 <!doctype html>
@@ -46,7 +41,7 @@ const { description = SITE_DESCRIPTION, title = getPageTitle() } = Astro.props;
   </head>
 
   <body class="flex min-h-dvh flex-col">
-    <EnvHint client:only />
+    <EnvHint client:only="react" />
     <SafeAreaContainer>
       <Header />
       <main class="flex h-full flex-1">
