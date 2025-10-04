@@ -2,8 +2,8 @@
 import { ArrowRight } from 'lucide-react';
 
 import { Link } from '@/components/ui/link';
+import { PostCard } from '@/features/blog/post-card';
 import { getBlogPostCollection } from '@/features/blog/posts';
-import { PostCard } from '@/features/blog/posts/post-card';
 
 const posts = await getBlogPostCollection({ limit: 1 });
 ---

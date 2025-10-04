@@ -2,8 +2,8 @@
 import { getUiState } from '@bearstudio/ui-state';
 
 import { HighlightedText } from '@/components/ui/highlighted-text';
+import { PostCard } from '@/features/blog/post-card';
 import { getBlogPostCollection } from '@/features/blog/posts';
-import { PostCard } from '@/features/blog/posts/post-card';
 
 const posts = await getBlogPostCollection({ limit: 2 });
 
