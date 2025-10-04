@@ -1,0 +1,42 @@
+---
+import { Badge } from '@/components/ui/badge';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from '@/components/ui/card';
+import type { Skill } from '@/content/skills';
+
+interface Props {
+  skill: Skill;
+}
+const { skill } = Astro.props;
+---
+
+<Card
+  className="relative mt-4 w-fit gap-0 px-4 py-2"
+  style={{ gridArea: skill.id }}
+>
+  <CardTitle
+    className="font-head bg-card border-input absolute -top-4 left-2 flex w-fit items-center rounded-lg border px-2 text-lg"
+  >
+    <skill.icon className="mr-2 size-4" />
+    {skill.title}
+  </CardTitle>
+  <CardContent className="flex h-full flex-col justify-between px-2 py-4">
+    <CardDescription className="space-y-1 space-x-1">
+      {
+        skill.tags.map((tag) => (
+          <Badge
+            variant={tag.isPrimary ? 'default' : 'secondary'}
+            key={tag.label}
+          >
+            {tag.label}
+          </Badge>
+        ))
+      }
+    </CardDescription>
+    <p class="text-balance">{skill.description}</p>
+  </CardContent>
+</Card>

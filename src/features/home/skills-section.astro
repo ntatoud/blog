@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+
+import { mySkills } from '@/content/skills';
+import cosmonaute from '@/features/home/assets/cosmo-doodle.png';
+import planet from '@/features/home/assets/planet-doodle.png';
+import rocket from '@/features/home/assets/rocket-doodle.png';
+import SkillCard from '@/features/home/skill-card.astro';
+---
+
+<section>
+  <div
+    class="container mx-auto flex flex-col gap-4 px-4 py-24 md:px-6 lg:py-32 2xl:max-w-[1400px]"
+  >
+    <h2
+      class="font-head mx-auto text-xl font-extrabold tracking-tight lg:text-3xl"
+    >
+      Skills
+    </h2>
+    <div class="skills-grid flex flex-col md:grid">
+      <Image
+        src={cosmonaute}
+        alt=""
+        style={{ gridArea: 'empty' }}
+        class="hidden w-[60%] place-self-center md:block"
+        quality={100}
+        format="webp"
+      />
+      <Image
+        src={planet}
+        alt=""
+        style={{ gridArea: 'empty-a' }}
+        class="hidden w-[60%] place-self-center md:block"
+      />
+
+      <Image
+        src={rocket}
+        alt=""
+        style={{ gridArea: 'empty-b' }}
+        class="hidden w-[50%] place-self-center align-middle md:block"
+      />
+      {mySkills.map((skill) => <SkillCard skill={skill} />)}
+    </div>
+  </div>
+</section>

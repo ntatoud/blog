@@ -32,7 +32,7 @@ const { description = SITE_DESCRIPTION, title = getPageTitle() } = Astro.props;
   </head>
 
   <body class="flex min-h-dvh flex-col">
-    <EnvHint client:load />
+    <EnvHint client:only />
     <SafeAreaContainer>
       <Header />
       <main class="flex h-full flex-1">
