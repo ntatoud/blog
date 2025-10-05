@@ -3,7 +3,7 @@ import type React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const highlihtedTextVariants = cva(
-  'relative inline-block before:absolute before:-inset-1 before:block  -z-10',
+  'relative inline-block before:absolute before:-inset-1 before:block -z-10',
   {
     variants: {
       variant: {
