@@ -16,6 +16,8 @@ const { title, description, pubDate, updatedDate, heroImage, translations } =
 ---
 
 <RootLayout title={getPageTitle(title)} description={description}>
+  <slot name="seo" slot="seo" />
+  <slot name="ld+json" slot="ld+json" />
   <article class="blog-post pb-24 md:pb-32">
     <div class="relative max-w-7xl overflow-hidden">
       {

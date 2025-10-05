@@ -1,8 +1,11 @@
 ---
+import SEO from '@/components/seo.astro';
+import { BLOG_DESCRIPTION, BLOG_TITLE } from '@/features/blog/constants';
 import PagePosts from '@/features/blog/page-posts.astro';
 import RootLayout from '@/layout/root-layout.astro';
 ---
 
 <RootLayout>
+  <SEO slot="seo" title={BLOG_TITLE} description={BLOG_DESCRIPTION} />
   <PagePosts />
 </RootLayout>
