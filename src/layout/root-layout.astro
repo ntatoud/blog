@@ -11,6 +11,7 @@ import '@fontsource/maple-mono/400.css';
 import '@fontsource/maple-mono/500.css';
 import '@fontsource/maple-mono/800.css';
 
+import Posthog from '@/components/posthog.astro';
 import { EnvHint } from '@/features/devtools/env-hint';
 
 interface Props {
@@ -39,6 +40,7 @@ interface Props {
 
     <slot name="seo" />
     <slot name="ld+json" />
+    <Posthog />
   </head>
 
   <body class="flex min-h-dvh flex-col">
