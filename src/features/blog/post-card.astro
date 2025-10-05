@@ -13,7 +13,7 @@ const { post } = Astro.props;
 
 {
   post ? (
-    <a href={`/blog/${post.id}/`} class="group">
+    <a href={`/blog/${post.id}`} class="group">
       <article class="bg-secondary/80 relative h-full overflow-hidden rounded-md transition-all duration-100">
         <div class="mask-b-from-30%">
           {!!post.heroImage && (

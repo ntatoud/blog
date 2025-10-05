@@ -13,7 +13,7 @@ tags:
   - TypeScript
 ---
 
-import { MCPSchema } from './schema';
+import MCPSchema from './mcp-schema.astro';
 
 ---
 
@@ -21,21 +21,19 @@ import { MCPSchema } from './schema';
 
 In recent months, the efficiency of _LLMs_ has been growing rapidly, shaking up our developer workflows. More and more often, we rely on them to write code, debug, design, or assist us throughout our daily tasks, they’re becoming essential copilots.
 
-> **LLM** (Large Language Model) is an AI trained on large amounts of text to **understand, generate, and reason in natural language**.
-
-The general public has already adopted tools like ChatGPT (OpenAI), LeChat (Mistral), and other generative AI solutions.  
-But beyond basic text exchanges and simple interactions, what if we went further? What if AI could **interact directly and autonomously with our tools**? Modify code? Query a database?  
+The general public has already adopted tools like ChatGPT (OpenAI), LeChat (Mistral), and other generative AI solutions.
+But beyond basic text exchanges and simple interactions, what if we went further? What if AI could **interact directly and autonomously with our tools**? Modify code? Query a database?
 That’s precisely what **AI agents** enable.
 
 ### What’s the difference between a **bot**, an **AI assistant**, and an **AI agent**?
 
-**Bot**: a very simple program. It follows predefined rules and gives automated responses. For example, a chatbot on a website that offers canned replies (“Press 1 to speak to an advisor”).  
+**Bot**: a very simple program. It follows predefined rules and gives automated responses. For example, a chatbot on a website that offers canned replies (“Press 1 to speak to an advisor”).
 👉 **It doesn't truly understand, it just runs scripts.**
 
-**AI Assistant** (like Siri, Alexa, or ChatGPT): more advanced. It understands what we say, responds naturally, and can perform simple tasks (send a message, run a search, etc.).  
+**AI Assistant** (like Siri, Alexa, or ChatGPT): more advanced. It understands what we say, responds naturally, and can perform simple tasks (send a message, run a search, etc.).
 👉 **It waits for input and executes what we ask, but it doesn't take initiative.**
 
-**AI Agent**: the next level. It can **act on its own**, make decisions **without being told**, and adapt to what’s happening. For example, an AI agent could monitor your inbox, detect an important meeting, book a taxi, and notify you, without you having to ask.  
+**AI Agent**: the next level. It can **act on its own**, make decisions **without being told**, and adapt to what’s happening. For example, an AI agent could monitor your inbox, detect an important meeting, book a taxi, and notify you, without you having to ask.
 👉 **It’s autonomous, smart, and learns over time.**
 
 _We won't go into detail about how AI agents work, but you can read this intro article from Google: <a href="https://cloud.google.com/discover/what-are-ai-agents?hl=fr" className="underline not-italic hover:no-underline hover:opacity-80">Google Cloud - What are AI agents?</a>_
@@ -44,9 +42,7 @@ So far, one of the main constraints when creating an agent was building very spe
 
 ---
 
-## MCP: Here comes a new challenger
-
-This is where the **Model Context Protocol (MCP)** comes in.  
+This is where the **Model Context Protocol (MCP)** comes in.
 Launched in late 2024 by **Anthropic** (the company behind Claude), this open-source protocol offers AI agents a simple, standardized, and secure way to connect to tools, data, and services, **without writing one-off integrations every time**.
 
 ### Theory: how does it work?

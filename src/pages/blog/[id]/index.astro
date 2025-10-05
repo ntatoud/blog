@@ -1,0 +1,65 @@
+---
+import { Schema } from 'astro-seo-schema';
+import { loadRenderers } from 'astro:container';
+import { render, type CollectionEntry } from 'astro:content';
+import { experimental_AstroContainer } from 'astro/container';
+import { getContainerRenderer as mdxContainerRenderer } from '@astrojs/mdx';
+import { getContainerRenderer } from '@astrojs/react';
+
+import SEO from '@/components/seo.astro';
+import { AUTHOR } from '@/consts';
+import PostLayout from '@/features/blog/post-layout.astro';
+import { getBlogPostCollection } from '@/features/blog/posts';
+
+export async function getStaticPaths() {
+  const posts = await getBlogPostCollection();
+
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<'blogPosts'>;
+
+const post = Astro.props as Props;
+const { Content } = await render(post);
+
+const url = new URL(Astro.url.pathname, Astro.site);
+
+// metadata
+const renderers = await loadRenderers([mdxContainerRenderer()]);
+const container = await experimental_AstroContainer.create({ renderers });
+const articleBody = (await container.renderToString(Content))
+  // strip html tags
+  .replace(/<[^>]*>/g, '')
+  .trim();
+const wordCount = articleBody.split(' ').length;
+---
+
+<PostLayout {...post.data}>
+  <SEO
+    slot="seo"
+    title={post.data.title}
+    description={post.data.description ?? ''}
+    url={url}
+    image={post.data.heroImage?.src ?? ''}
+  />
+  <Schema
+    slot="ld+json"
+    item={{
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      articleBody,
+      headline: post.data.title,
+      wordCount,
+      datePublished: post.data.pubDate.toLocaleDateString('en-EN'),
+      dateModified: post.data.updatedDate?.toLocaleDateString('en-EN'),
+      abstract: post.data.description ?? '',
+      isAccessibleForFree: true,
+      author: AUTHOR,
+      keywords: post.data.tags ?? [],
+    }}
+  />
+  <Content />
+</PostLayout>
