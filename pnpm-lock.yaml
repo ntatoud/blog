@@ -23,6 +23,12 @@ importers:
       '@astrojs/sitemap':
         specifier: 3.6.0
         version: 3.6.0
+      '@bearstudio/astro-typed-routes':
+        specifier: 0.1.3
+        version: 0.1.3
+      '@bearstudio/lunalink':
+        specifier: 0.3.1
+        version: 0.3.1
       '@bearstudio/ui-state':
         specifier: 1.0.2
         version: 1.0.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -312,6 +318,12 @@ packages:
   '@babel/types@7.28.4':
     resolution: {integrity: sha512-bkFqkLhh3pMBUQQkpVgWDWq/lqzc2678eUyDlTBhRqhCHFguYYGM0Efga7tYk4TogG/3x0EEl66/OQ+WGbWB/Q==}
     engines: {node: '>=6.9.0'}
+
+  '@bearstudio/astro-typed-routes@0.1.3':
+    resolution: {integrity: sha512-6g6SJmhPF6OPHSLAXrvxD7RqQEE1Cys++LwXejeYQDf4+rtSjNPuFxUD3rT5Wxe4s2C9cux6z74vd5Vu6OT4RQ==}
+
+  '@bearstudio/lunalink@0.3.1':
+    resolution: {integrity: sha512-e5fODEV6t1Xva4o3KIbhIIuHDtm+A06l61brHIry7af1z/FpbPZ+5ck4OdyWnWgp+OqPtmtr/NWvYPomXZj2pA==}
 
   '@bearstudio/ui-state@1.0.2':
     resolution: {integrity: sha512-/O47TMdXKkGRETlBK83DQEL5f9u56+llybHmOzGb8qLSdwzIlKaKDYzJ4IFQw2BglDOX+azEsc3vQ4C7Z9nJaA==}
@@ -1778,6 +1790,10 @@ packages:
   decode-named-character-reference@1.1.0:
     resolution: {integrity: sha512-Wy+JTSbFThEOXQIR2L6mxJvEs+veIzpmqD7ynWxMXGpnk3smkHQOp6forLdHsKpAMW9iJpaBBIxz285t1n1C3w==}
 
+  decode-uri-component@0.4.1:
+    resolution: {integrity: sha512-+8VxcR21HhTy8nOt6jf20w0c9CADrw1O8d+VZ/YzzCt4bJ3uBjw+D1q2osAB8RnpwwaeYBxy0HyKQxD5JBMuuQ==}
+    engines: {node: '>=14.16'}
+
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
@@ -2082,6 +2098,10 @@ packages:
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
+
+  filter-obj@5.1.0:
+    resolution: {integrity: sha512-qWeTREPoT7I0bifpPUXtxkZJ1XJzxWtfoWWkdVGqa+eCr3SHW/Ocp89o8vLvbUuQnadybJpjOKu4V+RwO6sGng==}
+    engines: {node: '>=14.16'}
 
   find-up-simple@1.0.1:
     resolution: {integrity: sha512-afd4O7zpqHeRyg4PfDQsXmlDe2PfdHtJt6Akt8jOWaApLOZk5JXs6VMR29lz03pRe9mpykrRCYIYxaJYcfpncQ==}
@@ -2915,6 +2935,10 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
+  query-string@9.1.1:
+    resolution: {integrity: sha512-MWkCOVIcJP9QSKU52Ngow6bsAWAPlPK2MludXvcrS2bGZSl+T1qX9MZvRIkqUIkGLJquMJHWfsT6eRqUpp4aWg==}
+    engines: {node: '>=18'}
+
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -3150,6 +3174,10 @@ packages:
 
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
+
+  split-on-first@3.0.0:
+    resolution: {integrity: sha512-qxQJTx2ryR0Dw0ITYyekNQWpz6f8dGd7vffGNflQQ3Iqj9NJ6qiZ7ELpZsJ/QBhIVAiDfXdag3+Gp8RvWa62AA==}
+    engines: {node: '>=12'}
 
   stream-replace-string@2.0.0:
     resolution: {integrity: sha512-TlnjJ1C0QrmxRNrON00JvaFFlNh5TTG00APw23j74ET7gkQpTASi6/L2fuiav8pzK715HXtUeClpBTw2NPSn6w==}
@@ -4022,6 +4050,12 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
+
+  '@bearstudio/astro-typed-routes@0.1.3': {}
+
+  '@bearstudio/lunalink@0.3.1':
+    dependencies:
+      query-string: 9.1.1
 
   '@bearstudio/ui-state@1.0.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
@@ -5544,6 +5578,8 @@ snapshots:
     dependencies:
       character-entities: 2.0.2
 
+  decode-uri-component@0.4.1: {}
+
   deep-is@0.1.4: {}
 
   defu@6.1.4: {}
@@ -5959,6 +5995,8 @@ snapshots:
   fill-range@7.1.1:
     dependencies:
       to-regex-range: 5.0.1
+
+  filter-obj@5.1.0: {}
 
   find-up-simple@1.0.1: {}
 
@@ -7017,6 +7055,12 @@ snapshots:
 
   punycode@2.3.1: {}
 
+  query-string@9.1.1:
+    dependencies:
+      decode-uri-component: 0.4.1
+      filter-obj: 5.1.0
+      split-on-first: 3.0.0
+
   queue-microtask@1.2.3: {}
 
   radix3@1.1.2: {}
@@ -7351,6 +7395,8 @@ snapshots:
   source-map@0.7.6: {}
 
   space-separated-tokens@2.0.2: {}
+
+  split-on-first@3.0.0: {}
 
   stream-replace-string@2.0.0: {}
 
