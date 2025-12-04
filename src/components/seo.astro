@@ -4,11 +4,10 @@ import type { ComponentProps } from 'astro/types';
 
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
 
-interface Props
-  extends Pick<
-    ComponentProps<typeof SEO>,
-    'title' | 'description' | 'noindex' | 'nofollow'
-  > {
+interface Props extends Pick<
+  ComponentProps<typeof SEO>,
+  'title' | 'description' | 'noindex' | 'nofollow'
+> {
   image?: NonNullable<
     ComponentProps<typeof SEO>['openGraph']
   >['basic']['image'];
