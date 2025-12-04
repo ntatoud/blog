@@ -1,8 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 
+import { lunalink } from '@bearstudio/lunalink';
+
 import { FormattedDate } from '@/components/formatted-date';
 import type { BlogPost } from '@/features/blog/schemas';
+import { ROUTES } from '@/routes.gen';
 
 interface Props {
   post?: BlogPost & { id: string };
@@ -13,7 +16,10 @@ const { post } = Astro.props;
 
 {
   post ? (
-    <a href={`/blog/${post.id}`} class="group">
+    <a
+      href={lunalink(ROUTES['blog'][':id'].__path, { id: post.id })}
+      class="group"
+    >
       <article class="bg-secondary/80 relative h-full overflow-hidden rounded-md transition-all duration-100">
         <div class="mask-b-from-30%">
           {!!post.heroImage && (

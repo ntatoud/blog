@@ -1,9 +1,11 @@
 ---
+import { lunalink } from '@bearstudio/lunalink';
 import { ArrowRight } from 'lucide-react';
 
 import { Link } from '@/components/ui/link';
 import PostCard from '@/features/blog/post-card.astro';
 import { getBlogPostCollection } from '@/features/blog/posts';
+import { ROUTES } from '@/routes.gen';
 
 const posts = await getBlogPostCollection({ limit: 1 });
 ---
@@ -16,7 +18,7 @@ const posts = await getBlogPostCollection({ limit: 1 });
           <h2 class="font-head mr-auto text-xl font-extrabold tracking-tight lg:text-3xl">
             Latest blog posts
           </h2>
-          <Link href="/blog" variant="ghost">
+          <Link href={lunalink(ROUTES.blog.__path, {})} variant="ghost">
             More articles <ArrowRight aria-hidden="true" />
           </Link>
         </div>
