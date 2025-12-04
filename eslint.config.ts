@@ -3,21 +3,21 @@ import eslint from '@eslint/js';
 import astro from 'eslint-plugin-astro';
 import reactHooks from 'eslint-plugin-react-hooks';
 import unicorn from 'eslint-plugin-unicorn';
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tslint from 'typescript-eslint';
 
-export default tslint.config(
+export default defineConfig(
   // Base config
-  tslint.configs.recommended,
   eslint.configs.recommended,
+  tslint.configs.recommended,
   ...astro.configs['flat/recommended'],
 
   {
     files: ['**/*.ts', '**/*.tsx'],
-
     extends: [
       react.configs['recommended-typescript'],
-      reactHooks.configs['recommended-latest'],
+      reactHooks.configs.flat.recommended,
     ],
     languageOptions: {
       globals: {

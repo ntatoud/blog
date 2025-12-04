@@ -16,7 +16,7 @@ export const THEMES = [
 const isServer = typeof window === 'undefined';
 
 export function useTheme(fallback: string) {
-  const [theme, setThemeState] = React.useState(() => getTheme(fallback));
+  const [themeState, setThemeState] = React.useState(() => getTheme(fallback));
 
   const preferedColorMode = useColorMode();
 
@@ -30,7 +30,7 @@ export function useTheme(fallback: string) {
     }
   };
 
-  return { theme, setTheme };
+  return { theme: themeState, setTheme };
 }
 
 function getTheme(fallback?: string) {
