@@ -2,8 +2,9 @@
 import { getUiState } from '@bearstudio/ui-state';
 
 import { HighlightedText } from '@/components/ui/highlighted-text';
+import EventCard from '@/features/events/event-card.astro';
+import SectionTitle from '@/features/home/_partials/section-title.astro';
 
-import EventCard from './event-card.astro';
 import { getEventCollection } from './events';
 
 const events = await getEventCollection({ limit: 20 });
@@ -32,13 +33,32 @@ const ui = getUiState((set) => {
       })
       .match('default', () => {
         return (
-          <ul class="flex h-fit flex-col justify-center gap-4 md:flex-row md:flex-wrap">
-            {events.map((event) => (
-              <li class="md:w-[calc(50%-0.5rem)]">
-                <EventCard event={event.data} />
-              </li>
-            ))}
-          </ul>
+          <div>
+            <div class="container mx-auto flex h-fit flex-col gap-4 px-4 py-12 md:px-6 2xl:max-w-[1400px]">
+              <SectionTitle className="mx-auto">Upcoming events</SectionTitle>
+              <ul class="flex h-fit flex-col justify-center gap-4 md:flex-row md:flex-wrap">
+                {events
+                  .filter((event) => event.data.date > new Date())
+                  .map((event) => (
+                    <li class="md:w-[calc(50%-0.5rem)]">
+                      <EventCard event={event.data} />
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            <div class="container mx-auto flex h-fit flex-col gap-4 px-4 py-12 md:px-6 2xl:max-w-[1400px]">
+              <SectionTitle className="mx-auto">Past events</SectionTitle>
+              <ul class="flex h-fit flex-col justify-center gap-4 md:flex-row md:flex-wrap">
+                {events
+                  .filter((event) => event.data.date <= new Date())
+                  .map((event) => (
+                    <li class="md:w-[calc(50%-0.5rem)]">
+                      <EventCard event={event.data} />
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </div>
         );
       })
       .exhaustive()
