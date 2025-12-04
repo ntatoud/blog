@@ -1,32 +1,32 @@
 ---
 import { Image } from 'astro:assets';
 
-import { lunalink } from '@bearstudio/lunalink';
-
 import { FormattedDate } from '@/components/formatted-date';
-import type { BlogPost } from '@/features/blog/schemas';
-import { ROUTES } from '@/routes.gen';
+import { Badge } from '@/components/ui/badge';
+import type { Event } from '@/features/events/schemas';
 
 interface Props {
-  post?: BlogPost & { id: string };
+  event?: Event;
 }
 
-const { post } = Astro.props;
+const { event } = Astro.props;
 ---
 
 {
-  post ? (
+  event ? (
     <a
-      href={lunalink(ROUTES['blog'][':id'].__path, { id: post.id })}
+      href={event.link}
       class="group"
-      aria-label={post.title}
+      aria-label={event.title}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <article class="bg-secondary/80 relative h-full overflow-hidden rounded-md border border-b-4 transition-all duration-100">
         <div class="mask-b-from-30%">
-          {!!post.heroImage && (
+          {!!event.heroImage && (
             <Image
-              src={post.heroImage}
-              alt={post.title}
+              src={event.heroImage}
+              alt={event.title}
               class="aspect-video w-full object-cover transition-all group-hover:scale-110"
               widths={[640, 1280, 1920, 2560]}
               sizes="(max-width: 640px) 640px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, 2560px"
@@ -35,22 +35,22 @@ const { post } = Astro.props;
             />
           )}
         </div>
-
+        <Badge className="absolute top-3 right-3">{event.role}</Badge>
         <div class="relative -mt-14 space-y-1 p-4">
           <FormattedDate
-            date={post.pubDate}
+            date={event.date}
             className="text-xs uppercase opacity-80 font-light"
           />
           <div class="group-hover:text-primary/90 line-clamp-2 text-xl font-semibold">
-            {post.title}
+            {event.title}
           </div>
-          {post.tags && <p>{post.tags.join(', ')}</p>}
+          {event.tags && <p>{event.tags.join(', ')}</p>}
         </div>
       </article>
     </a>
   ) : (
     <div class="bg-secondary/30 relative flex h-full w-full items-center justify-center overflow-hidden rounded-md text-center uppercase opacity-80">
-      More content soon
+      More events to come
       <div class="bg-accent absolute -z-10 h-full w-full mask-b-from-30%" />
     </div>
   )

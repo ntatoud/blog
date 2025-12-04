@@ -10,3 +10,4 @@ pre-commit:
 
     - run: pnpx prettier {staged_files} --write
       glob: '*.{js,ts,jsx,tsx,astro}'
+      stage_fixed: true

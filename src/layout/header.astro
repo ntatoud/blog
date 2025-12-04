@@ -4,6 +4,7 @@ import { ThemeSwitcher } from '@/components/theme-switcher';
 import { SITE_TITLE } from '@/consts';
 import MaxWidth from '@/layout/containers/max-width.astro';
 import HeaderLink from '@/layout/header-link.astro';
+import { ROUTES } from '@/routes.gen';
 
 type HeaderLinkItem = {
   label: string;
@@ -16,7 +17,11 @@ const headerLinks: Array<HeaderLinkItem> = [
   },
   {
     label: 'Blog',
-    href: '/blog',
+    href: ROUTES.blog.__path,
+  },
+  {
+    label: 'Events',
+    href: ROUTES.events.__path,
   },
 ];
 ---

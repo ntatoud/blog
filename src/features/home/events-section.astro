@@ -1,0 +1,36 @@
+---
+import { lunalink } from '@bearstudio/lunalink';
+import { ArrowRight } from 'lucide-react';
+
+import { Link } from '@/components/ui/link';
+import EventCard from '@/features/events/event-card.astro';
+import { getEventCollection } from '@/features/events/events';
+import SectionTitle from '@/features/home/_partials/section-title.astro';
+import { ROUTES } from '@/routes.gen';
+
+const events = await getEventCollection({ limit: 2 });
+---
+
+<section>
+  <div
+    class="container mx-auto flex h-fit flex-col gap-4 px-4 py-12 md:px-6 2xl:max-w-[1400px]"
+  >
+    <div class="flex">
+      <SectionTitle className="mr-auto">Events</SectionTitle>
+      <Link href={lunalink(ROUTES.events.__path, {})} variant="ghost">
+        More events <ArrowRight aria-hidden="true" />
+      </Link>
+    </div>
+    <ul
+      class="flex flex-col justify-center gap-4 md:flex-row md:flex-wrap md:items-stretch"
+    >
+      {
+        events.map((event) => (
+          <li class="md:w-[calc(50%-0.5rem)]">
+            <EventCard event={event.data} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
