@@ -1,0 +1,11 @@
+---
+import SEO from '@/components/seo.astro';
+import { EVENT_DESCRIPTION, EVENT_TITLE } from '@/features/events/constants';
+import PageEvents from '@/features/events/page-events.astro';
+import RootLayout from '@/layout/root-layout.astro';
+---
+
+<RootLayout>
+  <SEO slot="seo" title={EVENT_TITLE} description={EVENT_DESCRIPTION} />
+  <PageEvents />
+</RootLayout>

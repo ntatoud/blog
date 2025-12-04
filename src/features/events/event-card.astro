@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 
 import { FormattedDate } from '@/components/formatted-date';
+import { Badge } from '@/components/ui/badge';
 import type { Event } from '@/features/events/schemas';
 
 interface Props {
@@ -34,7 +35,7 @@ const { event } = Astro.props;
             />
           )}
         </div>
-
+        <Badge className="absolute top-3 right-3">{event.role}</Badge>
         <div class="relative -mt-14 space-y-1 p-4">
           <FormattedDate
             date={event.date}
